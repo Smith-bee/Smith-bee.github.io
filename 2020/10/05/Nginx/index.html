@@ -1,302 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  
-  <title>Nginx学习 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nginx学习一、集群1、什么是集群（分布式服务器架构） 集：合在一起、放在一起 群：一堆、很多 服务器架构集群：多台服务器组成的响应大并发，高数据量访问的架构体系。 特点： 成本高 能够降低单台服务器的压力，使流量平均分配到多台服务器 使网站服务架构更加安全稳定     服务器：提供某种或者多种服务（功能）的机器（计算机） 硬件：性能较好的电脑主机 软件：实现各种服务支持的协议的软件    1.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Nginx学习">
-<meta property="og:url" content="http://example.com/2020/10/05/Nginx/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Nginx学习一、集群1、什么是集群（分布式服务器架构） 集：合在一起、放在一起 群：一堆、很多 服务器架构集群：多台服务器组成的响应大并发，高数据量访问的架构体系。 特点： 成本高 能够降低单台服务器的压力，使流量平均分配到多台服务器 使网站服务架构更加安全稳定     服务器：提供某种或者多种服务（功能）的机器（计算机） 硬件：性能较好的电脑主机 软件：实现各种服务支持的协议的软件    1.">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2020/10/05/image/server.png">
-<meta property="article:published_time" content="2020-10-05T13:49:18.762Z">
-<meta property="article:modified_time" content="2020-10-05T14:15:19.903Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/10/05/image/server.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Nginx" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/05/Nginx/" class="article-date">
-  <time datetime="2020-10-05T13:49:18.762Z" itemprop="datePublished">2020-10-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Nginx学习
-    </h1>
-  
+{% block page_class %}page-post-detail{% endblock %}
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Nginx学习"><a href="#Nginx学习" class="headerlink" title="Nginx学习"></a>Nginx学习</h1><h2 id="一、集群"><a href="#一、集群" class="headerlink" title="一、集群"></a>一、集群</h2><h3 id="1、什么是集群（分布式服务器架构）"><a href="#1、什么是集群（分布式服务器架构）" class="headerlink" title="1、什么是集群（分布式服务器架构）"></a>1、什么是集群（分布式服务器架构）</h3><ul>
-<li>集：合在一起、放在一起</li>
-<li>群：一堆、很多</li>
-<li>服务器架构集群：多台服务器组成的响应大并发，高数据量访问的架构体系。<ul>
-<li>特点：<ul>
-<li>成本高</li>
-<li>能够降低单台服务器的压力，使流量平均分配到多台服务器</li>
-<li>使网站服务架构更加安全稳定</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>服务器：提供某种或者多种服务（功能）的机器（计算机）<ul>
-<li>硬件：性能较好的电脑主机</li>
-<li>软件：实现各种服务支持的协议的软件</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-1、web服务软件"><a href="#1-1、web服务软件" class="headerlink" title="1.1、web服务软件"></a>1.1、web服务软件</h4><ul>
-<li>功能：提供http、https协议的服务器，网站网页访问的功能。</li>
-<li>服务<ul>
-<li>apache：老牌的服务器软件，功能多并且稳定，支持多种配置，lamp环境</li>
-<li>nginx:（俄罗斯人开发）安装简单小巧，并发量高，正在发展中，可以做web服务器、代理（反代理）服务器、邮箱服务器，lnmp环境</li>
-<li>国内淘宝定制版的nginx:tengine（由淘宝网发起的web服务器项目，它在nginx的基础上针对大访问量网站的需求，添加了很多高级功能和特性</li>
-<li>IIS：微软公司，为ASP脚本使用，可以通过fast-cgi（网络接口服务）的方式使用php</li>
-<li>lighttpd：德国开发软件，小巧，提供web服务支持，cpu占有率低，访问速度快</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-2、数据库"><a href="#1-2、数据库" class="headerlink" title="1.2、数据库"></a>1.2、数据库</h4><ul>
-<li>关系型数据库（RDBMS）<ul>
-<li>mysql：开源，属于oracle</li>
-<li>mariadb：mysql的一个分支，语法类似于mysql</li>
-<li>postgresql：加州伯克利大学，学院派</li>
-<li>oracle：大型商业数据库</li>
-<li>sqlserver：微软数据库</li>
-<li>DB2：IBM公司的数据库</li>
-<li>sqllite3：手机端（iOS和安卓）使用</li>
-</ul>
-</li>
-<li>非关系型数据库<ul>
-<li>memcached</li>
-<li>redis</li>
-<li>mongodb</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-3、负载均衡"><a href="#1-3、负载均衡" class="headerlink" title="1.3、负载均衡"></a>1.3、负载均衡</h4><p>　　负载均衡服务器，分发请求到不同的服务器，使流量平均分配。</p>
-<p>　　服务器死机，称为宕机。</p>
-<ul>
-<li>硬件级别：F5，性能好，价格高</li>
-<li>软件级别：性价比高<ul>
-<li>lvs：Linux下分发软件</li>
-<li>nginx：upstream功能分发</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-4、资源服务器"><a href="#1-4、资源服务器" class="headerlink" title="1.4、资源服务器"></a>1.4、资源服务器</h4><p>　　资源服务器存储静态资源，css、js、图片、视频等。一般此服务器会有硬盘（ssd固态）读写快速，带宽更大。</p>
-<h4 id="1-5、反向代理"><a href="#1-5、反向代理" class="headerlink" title="1.5、反向代理"></a>1.5、反向代理</h4><p>　　反向代理服务器具有代理请求到对应的服务器的功能，也具有缓存的功能。</p>
-<ul>
-<li>代理服务器：举个栗子，<em>a要访问c，但a不能访问c；b可以访问c，a可以访问c；所以a告诉b，帮忙访问c，把c的数据返回给a。</em><ul>
-<li>正向代理：内网访问外网</li>
-<li>反向代理：外网访问内网<ul>
-<li>squid</li>
-<li>varnish：高性能的开源http加速器。</li>
-<li>nginx</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-6、高可用"><a href="#1-6、高可用" class="headerlink" title="1.6、高可用"></a>1.6、高可用</h4><p>　　高可用服务器，用来监控负载均衡服务器，如果一旦负载均衡服务器宕机，会接替负载均衡服务器的工作，继续进行网络的分发工作。<br>可以认为是负载均衡服务器的备用服务器。</p>
-<ul>
-<li>heartbit：心脏敲击</li>
-<li>keeplive：保持活跃</li>
-</ul>
-<h4 id="1-7、缓存软件"><a href="#1-7、缓存软件" class="headerlink" title="1.7、缓存软件"></a>1.7、缓存软件</h4><ul>
-<li>memcached</li>
-<li>redis</li>
-</ul>
-<h4 id="1-8、cdn内容分发"><a href="#1-8、cdn内容分发" class="headerlink" title="1.8、cdn内容分发"></a>1.8、cdn内容分发</h4><p>　　cdn：（Content Delivery Network）内容分发网络。基本思路是尽可能避开影响速度的瓶颈和环节，通过在网络各处放置节点服务器所构成<br>的在现有的互联网基础之一的一层智能虚拟网络，cdn系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合<br>信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户可就近取得所需内容，解决Internet网络拥挤的状况，提高用户访问网站的<br>响应速度。</p>
-<p><img src="../image/server.png" alt="服务器的组织架构"></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/05/Nginx/" data-id="ckfwlcoix000314us8vhhgjho" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/10/05/win10%E5%AE%89%E8%A3%85nodejs%E4%BB%A5%E5%8F%8Anpm/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          nodejs安装及nmp包管理工具(win10)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/10/05/LeetcodeProblem/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Leetcode刷题</div>
-    </a>
-  
-</nav>
+{% block content %}
 
-  
-</article>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/10/05/win10%E5%AE%89%E8%A3%85nodejs%E4%BB%A5%E5%8F%8Anpm/">nodejs安装及nmp包管理工具(win10)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/05/Nginx/">Nginx学习</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/05/LeetcodeProblem/">Leetcode刷题</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/05/Jupyter%20notebook%20%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/">Jupyter notebook 主题设置</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/05/json%E5%AD%A6%E4%B9%A0/">json学习</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
