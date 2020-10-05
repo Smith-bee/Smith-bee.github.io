@@ -1,1195 +1,493 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <meta charset="utf-8">
+    
+    <title>
+        Smith-bee的Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
 
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"بحث...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"example.com","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":false},"themeInfo":{"name":"ILS","version":"2.0.2","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"}};
   </script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Smith-bee的Blog">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Smith-bee的Blog">
-<meta property="og:locale">
-<meta property="article:author" content="Smith-bee">
-<meta name="twitter:card" content="summary">
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
-<link rel="canonical" href="http://example.com/">
+<body>
+<div class="page-container">
 
-
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-Hans'
-  };
-</script>
-
-  <title>Smith-bee的Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Smith-bee的Blog</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</div>
-        
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          المحتويات
-        </li>
-        <li class="sidebar-nav-overview">
-          عام
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-      </section>
-      <!--/noindex-->
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Smith-bee</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">8</span>
-          <span class="site-state-item-name">المقالات</span>
-        </a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </section>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
+    <header class="page-header">
+        <div class="header-progress"></div>
     </header>
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+    <main class="page-main">
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+        <div class="page-main-content">
 
+            <div class="page-main-content-top">
+                <header class="header-wrapper">
 
-    <div class="main-inner index posts-expand">
-      
+    <div class="header-content">
 
-      
-    
+        <a class="logo-title" href="/">
+            Smith-bee的Blog
+        </a>
 
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class="active"
+                       href="/"
+                    >
+                        首页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        归档
+                    </a>
+                </li>
+            
+        </ul>
 
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/win10%E5%AE%89%E8%A3%85nodejs%E4%BB%A5%E5%8F%8Anpm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/win10%E5%AE%89%E8%A3%85nodejs%E4%BB%A5%E5%8F%8Anpm/" class="post-title-link" itemprop="url">nodejs安装及nmp包管理工具(win10)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-      
-
-      <time title="أُنشأ: 2020-10-05 21:49:18 / عُدل: 22:15:23" itemprop="dateCreated datePublished" datetime="2020-10-05T21:49:18+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="nodejs安装及nmp包管理工具-win10"><a href="#nodejs安装及nmp包管理工具-win10" class="headerlink" title="nodejs安装及nmp包管理工具(win10)"></a>nodejs安装及nmp包管理工具(win10)</h1><p>包管理工具nmp包含在nodejs中，在安装时一并安装好了</p>
-<h2 id="nodejs安装"><a href="#nodejs安装" class="headerlink" title="nodejs安装"></a>nodejs安装</h2><ul>
-<li>去官网下载最新版本(<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">nodejs官网</a>)</li>
-</ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005141858439.png" alt="image-20201005141858439"></p>
-<ul>
-<li>点击安装，选择安装路径，不建议安装在c盘，其他自己选择</li>
-</ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005142106551.png" alt="image-20201005142106551"></p>
-<ul>
-<li>等待安装完成即可</li>
-<li>检查是否成功，打开cmd命令行，输入如下命令</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005142656419.png" alt="image-20201005142656419"></p>
-<p>如上图，就成功了</p>
-<h2 id="npm的配置"><a href="#npm的配置" class="headerlink" title="npm的配置"></a>npm的配置</h2><ul>
-<li>在nodejs安装路径下(例如：E:\nodejs)，新建两个文件夹，<code>node_cache</code>和<code>node_global</code>，在命令行输入如下命令</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;E:\nodejs\node_global&quot;</span><br><span class="line">npm config set cache &quot;E:\nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>因为服务器在国外，使用npm包管理工具时速度可能会很慢，所以可以配置镜像加速</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry=http://registry.nom.taobao.org</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>可以使用如下命令查看配置信息</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config list</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ul>
-<li>在系统变量中新增<code>NODE_PATH E:\nodejs\node_global</code></li>
-</ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005144051382.png" alt="image-20201005144051382"></p>
-<ul>
-<li>在系统变量的Path中新增<code>E:\nodejs\node_global</code></li>
-</ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005144333105.png" alt="image-20201005144333105"></p>
-<p>到此为止，相关配置全部完毕了，可以正常使用了。</p>
-<h2 id="npm入门级命令"><a href="#npm入门级命令" class="headerlink" title="npm入门级命令"></a>npm入门级命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">npm install appname -g</td>
-<td align="center">安装插件</td>
-</tr>
-<tr>
-<td align="center">npm uninstall appname -g</td>
-<td align="center">卸载插件</td>
-</tr>
-<tr>
-<td align="center">npm update appname -g</td>
-<td align="center">更新插件</td>
-</tr>
-<tr>
-<td align="center">npm list</td>
-<td align="center">查看安装的插件</td>
-</tr>
-</tbody></table>
-<p><code>-g</code>:表示全局，相当于配置了全局变量，建议 <code>-g</code></p>
-
-      
     </div>
 
-    
-    
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class="active"
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+            </div>
+
+            <div class="page-main-content-middle">
+
+                <main class="main-content normal-code-theme">
+
+                    
+                        <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/win10%E5%AE%89%E8%A3%85nodejs%E4%BB%A5%E5%8F%8Anpm/">
+                        
+                        nodejs安装及nmp包管理工具(win10)
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        nodejs安装及nmp包管理工具(win10)包管理工具nmp包含在nodejs中，在安装时一并安装好了
+nodejs安装
+去官网下载最新版本(nodejs官网)
+
+
+
+点击安装，选择安装路径，不建议安装在c盘，其他自己选择
+
+
+
+等待安装完成即可
+检查是否成功，打开cmd命令行，输入如下命...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/win10%E5%AE%89%E8%A3%85nodejs%E4%BB%A5%E5%8F%8Anpm/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/Nginx/">
+                        
+                        Nginx学习
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Nginx学习一、集群1、什么是集群（分布式服务器架构）
+集：合在一起、放在一起
+群：一堆、很多
+服务器架构集群：多台服务器组成的响应大并发，高数据量访问的架构体系。
+特点：
+成本高
+能够降低单台服务器的压力，使流量平均分配到多台服务器
+使网站服务架构更加安全稳定
+
+
+
+
+服务器：提供某种或者...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/Nginx/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/LeetcodeProblem/">
+                        
+                        Leetcode刷题
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Leetcode刷题数据结构
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/LeetcodeProblem/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/Jupyter%20notebook%20%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/">
+                        
+                        Jupyter notebook 主题设置
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Jupyter notebook 主题设置主题
+安装jupyter主题
+
+1pip install --upgrade jupyterthemes
+
+
+操作
+
+查看主题列表
+
+1jt -l
+
+
+更换主题
+
+1jt -t 主题名称
+
+
+恢复默认
+
+1jt -r
+
+
+
+字体
+字体css位置
+
+1\...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/Jupyter%20notebook%20%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/json%E5%AD%A6%E4%B9%A0/">
+                        
+                        json学习
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        json学习
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/json%E5%AD%A6%E4%B9%A0/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/HBase/">
+                        
+                        HBase
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        HBase在HBase环境下，创建student表
+进入HBase
+
+12cd /usr/local/hbase/bin./hbase shell
+
+
+创建student表
+
+12345678&gt; create &#x27;student&#x27;,&#x27;info&#x27;&gt...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/HBase/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/docker/">
+                        
+                        Docker学习
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Docker学习
+
+1.Docker简介1.1 什么是虚拟化　　在计算机中，虚拟化（Virtualization）是一种资源管理技术，是将计算机的各种实体资源，如服务器、网络、内存及存储等，予以抽象、转换后呈现出来，打破实体结构间的不可分割的障碍，使用户可以比原来的组态更好的方式来应用这些资源...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/docker/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                <h3 class="home-article-title">
+                    <a href="/2020/10/05/hello-world/">
+                        
+                        Hello World
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer ...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> 2020-10-05</span>
+                        
+                            
+                            
+                        
+                    </div>
+                    
+                    <a href="/2020/10/05/hello-world/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
     
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+    
+</div>
+
+    </div>
 </div>
 
 
+                    
 
+                </main>
 
-    
+            </div>
 
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/Nginx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/Nginx/" class="post-title-link" itemprop="url">Nginx学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-      
-
-      <time title="أُنشأ: 2020-10-05 21:49:18 / عُدل: 22:15:19" itemprop="dateCreated datePublished" datetime="2020-10-05T21:49:18+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
+            <div class="page-main-content-bottom">
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">Smith-bee</a>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Nginx学习"><a href="#Nginx学习" class="headerlink" title="Nginx学习"></a>Nginx学习</h1><h2 id="一、集群"><a href="#一、集群" class="headerlink" title="一、集群"></a>一、集群</h2><h3 id="1、什么是集群（分布式服务器架构）"><a href="#1、什么是集群（分布式服务器架构）" class="headerlink" title="1、什么是集群（分布式服务器架构）"></a>1、什么是集群（分布式服务器架构）</h3><ul>
-<li>集：合在一起、放在一起</li>
-<li>群：一堆、很多</li>
-<li>服务器架构集群：多台服务器组成的响应大并发，高数据量访问的架构体系。<ul>
-<li>特点：<ul>
-<li>成本高</li>
-<li>能够降低单台服务器的压力，使流量平均分配到多台服务器</li>
-<li>使网站服务架构更加安全稳定</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>服务器：提供某种或者多种服务（功能）的机器（计算机）<ul>
-<li>硬件：性能较好的电脑主机</li>
-<li>软件：实现各种服务支持的协议的软件</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-1、web服务软件"><a href="#1-1、web服务软件" class="headerlink" title="1.1、web服务软件"></a>1.1、web服务软件</h4><ul>
-<li>功能：提供http、https协议的服务器，网站网页访问的功能。</li>
-<li>服务<ul>
-<li>apache：老牌的服务器软件，功能多并且稳定，支持多种配置，lamp环境</li>
-<li>nginx:（俄罗斯人开发）安装简单小巧，并发量高，正在发展中，可以做web服务器、代理（反代理）服务器、邮箱服务器，lnmp环境</li>
-<li>国内淘宝定制版的nginx:tengine（由淘宝网发起的web服务器项目，它在nginx的基础上针对大访问量网站的需求，添加了很多高级功能和特性</li>
-<li>IIS：微软公司，为ASP脚本使用，可以通过fast-cgi（网络接口服务）的方式使用php</li>
-<li>lighttpd：德国开发软件，小巧，提供web服务支持，cpu占有率低，访问速度快</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-2、数据库"><a href="#1-2、数据库" class="headerlink" title="1.2、数据库"></a>1.2、数据库</h4><ul>
-<li>关系型数据库（RDBMS）<ul>
-<li>mysql：开源，属于oracle</li>
-<li>mariadb：mysql的一个分支，语法类似于mysql</li>
-<li>postgresql：加州伯克利大学，学院派</li>
-<li>oracle：大型商业数据库</li>
-<li>sqlserver：微软数据库</li>
-<li>DB2：IBM公司的数据库</li>
-<li>sqllite3：手机端（iOS和安卓）使用</li>
-</ul>
-</li>
-<li>非关系型数据库<ul>
-<li>memcached</li>
-<li>redis</li>
-<li>mongodb</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-3、负载均衡"><a href="#1-3、负载均衡" class="headerlink" title="1.3、负载均衡"></a>1.3、负载均衡</h4><p>　　负载均衡服务器，分发请求到不同的服务器，使流量平均分配。</p>
-<p>　　服务器死机，称为宕机。</p>
-<ul>
-<li>硬件级别：F5，性能好，价格高</li>
-<li>软件级别：性价比高<ul>
-<li>lvs：Linux下分发软件</li>
-<li>nginx：upstream功能分发</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-4、资源服务器"><a href="#1-4、资源服务器" class="headerlink" title="1.4、资源服务器"></a>1.4、资源服务器</h4><p>　　资源服务器存储静态资源，css、js、图片、视频等。一般此服务器会有硬盘（ssd固态）读写快速，带宽更大。</p>
-<h4 id="1-5、反向代理"><a href="#1-5、反向代理" class="headerlink" title="1.5、反向代理"></a>1.5、反向代理</h4><p>　　反向代理服务器具有代理请求到对应的服务器的功能，也具有缓存的功能。</p>
-<ul>
-<li>代理服务器：举个栗子，<em>a要访问c，但a不能访问c；b可以访问c，a可以访问c；所以a告诉b，帮忙访问c，把c的数据返回给a。</em><ul>
-<li>正向代理：内网访问外网</li>
-<li>反向代理：外网访问内网<ul>
-<li>squid</li>
-<li>varnish：高性能的开源http加速器。</li>
-<li>nginx</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-6、高可用"><a href="#1-6、高可用" class="headerlink" title="1.6、高可用"></a>1.6、高可用</h4><p>　　高可用服务器，用来监控负载均衡服务器，如果一旦负载均衡服务器宕机，会接替负载均衡服务器的工作，继续进行网络的分发工作。<br>可以认为是负载均衡服务器的备用服务器。</p>
-<ul>
-<li>heartbit：心脏敲击</li>
-<li>keeplive：保持活跃</li>
-</ul>
-<h4 id="1-7、缓存软件"><a href="#1-7、缓存软件" class="headerlink" title="1.7、缓存软件"></a>1.7、缓存软件</h4><ul>
-<li>memcached</li>
-<li>redis</li>
-</ul>
-<h4 id="1-8、cdn内容分发"><a href="#1-8、cdn内容分发" class="headerlink" title="1.8、cdn内容分发"></a>1.8、cdn内容分发</h4><p>　　cdn：（Content Delivery Network）内容分发网络。基本思路是尽可能避开影响速度的瓶颈和环节，通过在网络各处放置节点服务器所构成<br>的在现有的互联网基础之一的一层智能虚拟网络，cdn系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合<br>信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户可就近取得所需内容，解决Internet网络拥挤的状况，提高用户访问网站的<br>响应速度。</p>
-<p><img src="../image/server.png" alt="服务器的组织架构"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/LeetcodeProblem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/LeetcodeProblem/" class="post-title-link" itemprop="url">Leetcode刷题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-      
-
-      <time title="أُنشأ: 2020-10-05 21:49:18 / عُدل: 22:15:11" itemprop="dateCreated datePublished" datetime="2020-10-05T21:49:18+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Leetcode刷题"><a href="#Leetcode刷题" class="headerlink" title="Leetcode刷题"></a>Leetcode刷题</h1><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3>
-      
     </div>
+</footer>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/Jupyter%20notebook%20%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/Jupyter%20notebook%20%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Jupyter notebook 主题设置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-      
-
-      <time title="أُنشأ: 2020-10-05 21:49:18 / عُدل: 22:15:05" itemprop="dateCreated datePublished" datetime="2020-10-05T21:49:18+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
+            </div>
         </div>
-      </header>
+    </main>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Jupyter-notebook-主题设置"><a href="#Jupyter-notebook-主题设置" class="headerlink" title="Jupyter notebook 主题设置"></a>Jupyter notebook 主题设置</h1><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><ul>
-<li>安装jupyter主题</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade jupyterthemes</span><br></pre></td></tr></table></figure>
+    <div class="sidebar-tools">
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
 
-<ul>
-<li><p>操作</p>
-<ul>
-<li>查看主题列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -l</span><br></pre></td></tr></table></figure>
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+        
+        <li class="page-aside-toggle">
+            <i class="fa fa-bars"></i>
+        </li>
+        
+    </ul>
+</div>
 
-<ul>
-<li>更换主题</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t 主题名称</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>恢复默认</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -r</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul>
-<li>字体css位置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Anaconda\Lib\site-packages\notebook\static\components\codemirror\lib\codemirror.css</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>字体样式</p>
-<p>在.css 文件的前几行，可直接修改</p>
-</li>
-<li><p>字体大小</p>
-<p>247行，**px</p>
-</li>
-<li><p>行间距(如果不合适，会非常难受)</p>
-<p>字体大小的下面</p>
-<p>line-height:**px</p>
-</li>
-</ul>
-
-      
     </div>
 
-    
-    
-    
+    <!-- page aside -->
+    <aside class="page-aside">
+        
+    </aside>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 </div>
 
 
 
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/json%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/json%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">json学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-      
-
-      <time title="أُنشأ: 2020-10-05 21:49:18 / عُدل: 22:14:58" itemprop="dateCreated datePublished" datetime="2020-10-05T21:49:18+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="json学习"><a href="#json学习" class="headerlink" title="json学习"></a>json学习</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/HBase/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/HBase/" class="post-title-link" itemprop="url">HBase</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-      
-
-      <time title="أُنشأ: 2020-10-05 21:49:18 / عُدل: 22:14:52" itemprop="dateCreated datePublished" datetime="2020-10-05T21:49:18+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="HBase"><a href="#HBase" class="headerlink" title="HBase"></a>HBase</h1><h2 id="在HBase环境下，创建student表"><a href="#在HBase环境下，创建student表" class="headerlink" title="在HBase环境下，创建student表"></a>在HBase环境下，创建student表</h2><ul>
-<li>进入HBase</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/hbase/bin</span><br><span class="line">./hbase shell</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建student表</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; create &#x27;student&#x27;,&#x27;info&#x27;</span><br><span class="line">&gt; put &#x27;student&#x27;,&#x27;1&#x27;,&#x27;info:name&#x27;,&#x27;James&#x27;</span><br><span class="line">&gt; put &#x27;student&#x27;,&#x27;1&#x27;,&#x27;info:gender&#x27;,&#x27;M&#x27;</span><br><span class="line">&gt; put &#x27;student&#x27;,&#x27;1&#x27;,&#x27;info:age&#x27;,&#x27;35&#x27;</span><br><span class="line">&gt; put &#x27;student&#x27;,&#x27;2&#x27;,&#x27;info:name&#x27;,&#x27;SmithGr&#x27;</span><br><span class="line">&gt; put &#x27;student&#x27;,&#x27;2&#x27;,&#x27;info:gender&#x27;,&#x27;M&#x27;</span><br><span class="line">&gt; put &#x27;student&#x27;,&#x27;2&#x27;,&#x27;info:age&#x27;,&#x27;33&#x27;</span><br><span class="line">&gt; exit</span><br></pre></td></tr></table></figure>
-
-<h2 id="读取HBase中student表"><a href="#读取HBase中student表" class="headerlink" title="读取HBase中student表"></a>读取HBase中student表</h2><ul>
-<li>编写python文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line">conf = SparkConf().setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;ReadHBase&quot;</span>)</span><br><span class="line">sc = SparkContext(conf = conf)</span><br><span class="line">host = <span class="string">&#x27;master&#x27;</span></span><br><span class="line">table = <span class="string">&#x27;student&#x27;</span></span><br><span class="line">conf = &#123;<span class="string">&quot;hbase.zookeeper.quorum&quot;</span>: host, <span class="string">&quot;hbase.mapreduce.inputtable&quot;</span>: table&#125;</span><br><span class="line">keyConv = <span class="string">&quot;org.apache.spark.examples.pythonconverters.ImmutableBytesWritableToStringConverter&quot;</span></span><br><span class="line">valueConv = <span class="string">&quot;org.apache.spark.examples.pythonconverters.HBaseResultToStringConverter&quot;</span></span><br><span class="line">hbase_rdd = sc.newAPIHadoopRDD(<span class="string">&quot;org.apache.hadoop.hbase.mapreduce.TableInputFormat&quot;</span>,<span class="string">&quot;org.apache.hadoop.hbase.io.ImmutableBytesWritable&quot;</span>,<span class="string">&quot;org.apache.hadoop.hbase.client.Result&quot;</span>,keyConverter=keyConv,valueConverter=valueConv,conf=conf)</span><br><span class="line">count = hbase_rdd.count()</span><br><span class="line">hbase_rdd.cache()</span><br><span class="line">output = hbase_rdd.collect()</span><br><span class="line"><span class="keyword">for</span> (k, v) <span class="keyword">in</span> output:</span><br><span class="line">        <span class="keyword">print</span> (k, v)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>执行代码</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit examples/readhbase.py</span><br></pre></td></tr></table></figure>
-
-<h2 id="向HBase写入数据"><a href="#向HBase写入数据" class="headerlink" title="向HBase写入数据"></a>向HBase写入数据</h2><ul>
-<li>编写python文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line">conf = SparkConf().setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;ReadHBase&quot;</span>)</span><br><span class="line">sc = SparkContext(conf = conf)</span><br><span class="line">host = <span class="string">&#x27;master&#x27;</span></span><br><span class="line">table = <span class="string">&#x27;student&#x27;</span></span><br><span class="line">keyConv = <span class="string">&quot;org.apache.spark.examples.pythonconverters.StringToImmutableBytesWritableConverter&quot;</span></span><br><span class="line">valueConv = <span class="string">&quot;org.apache.spark.examples.pythonconverters.StringListToPutConverter&quot;</span></span><br><span class="line">conf = &#123;<span class="string">&quot;hbase.zookeeper.quorum&quot;</span>: host,<span class="string">&quot;hbase.mapred.outputtable&quot;</span>: table,<span class="string">&quot;mapreduce.outputformat.class&quot;</span>: <span class="string">&quot;org.apache.hadoop.hbase.mapreduce.TableOutputFormat&quot;</span>,<span class="string">&quot;mapreduce.job.output.key.class&quot;</span>: <span class="string">&quot;org.apache.hadoop.hbase.io.ImmutableBytesWritable&quot;</span>,<span class="string">&quot;mapreduce.job.output.value.class&quot;</span>: <span class="string">&quot;org.apache.hadoop.io.Writable&quot;</span>&#125;</span><br><span class="line">rawData = [<span class="string">&#x27;3,info,name,Rongcheng&#x27;</span>,<span class="string">&#x27;3,info,gender,M&#x27;</span>,<span class="string">&#x27;3,info,age,26&#x27;</span>,<span class="string">&#x27;4,info,name,Guanhua&#x27;</span>,<span class="string">&#x27;4,info,gender,M&#x27;</span>,<span class="string">&#x27;4,info,age,27&#x27;</span>]</span><br><span class="line">sc.parallelize(rawData).map(<span class="keyword">lambda</span> x: (x[<span class="number">0</span>],x.split(<span class="string">&#x27;,&#x27;</span>))).saveAsNewAPIHadoopDataset(conf=conf,keyConverter=keyConv,valueConverter=valueConv)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>执行代码</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit examples/writehbase.py</span><br></pre></td></tr></table></figure>
-
-
-      
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 </div>
 
 
 
+<script src="/js/main.js"></script>
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
 
-    
 
 
-<div class="post-block">
-  
-  
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/docker/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/docker/" class="post-title-link" itemprop="url">Docker学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-      
-
-      <time title="أُنشأ: 2020-10-05 21:49:18 / عُدل: 22:14:21" itemprop="dateCreated datePublished" datetime="2020-10-05T21:49:18+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h1><br>
-
-<h2 id="1-Docker简介"><a href="#1-Docker简介" class="headerlink" title="1.Docker简介"></a>1.Docker简介</h2><h3 id="1-1-什么是虚拟化"><a href="#1-1-什么是虚拟化" class="headerlink" title="1.1 什么是虚拟化"></a>1.1 什么是虚拟化</h3><p>　　在计算机中，虚拟化（Virtualization）是一种资源管理技术，是将计算机的各种实体资源，如服务器、网络、内存及存储等，<br>予以抽象、转换后呈现出来，打破实体结构间的不可分割的障碍，使用户可以比原来的组态更好的方式来应用这些资源。这些资源的<br>新虚拟部分是不受现有资源的架设方式、地域或物理组态所限制的。一般所指的虚拟化资源包括计算能力和资料存储。<br><br></p>
-<p>　　虚拟化的技术有很多，例如：软件虚拟化、硬件虚拟化、内存虚拟化、网络虚拟化、桌面虚拟化、服务虚拟化和虚拟机等。</p>
-<h3 id="1-2-什么是Docker"><a href="#1-2-什么是Docker" class="headerlink" title="1.2 什么是Docker"></a>1.2 什么是Docker</h3><p>　　Docker是一个开源项目，诞生于2013年初，基于Go语言实现的。后来加入Linux基金会，遵从Apache2.0协议，项目代码在Github<br>上进行维护。</p>
-<p>　　Docker的基础是Linux，与虚拟机不同的是，Docker只能虚拟出与宿主机相同的容器，但是占用的空间非常小，运行效率非常高。</p>
-<h3 id="1-3-Docker的组件"><a href="#1-3-Docker的组件" class="headerlink" title="1.3 Docker的组件"></a>1.3 Docker的组件</h3><ul>
-<li>服务器与客户端 <br><br>　　Docker是一个客户端与服务器（C/S）架构程序。客户端向服务器或守护进程发出请求，服务器或守护进程将完成工作并返回结果。</li>
-<li>镜像与容器 <br><br>　　镜像是构建Docker的基石。用户基于镜像来运行自己的容器。镜像也是Docker生命周期中的“构建部分”。镜像是基于联合文件系统<br>的一种层式结构，有一系列指令一步一步构建出来。<br><br>　　容器是基于镜像启动起来的，容器中可以运行一个或多个进程。镜像是Docker生命周期中的构建或是打包阶段，而容器则是启动或<br>执行阶段。容器时基于镜像启动，一旦容器启动完成后，就可以在容器中安装自己需要的软件和服务。</li>
-<li>Registry（注册中心）<br><br>　　Docker用Registry来保存用户构建的镜像。分为公有和私有两部分，Docker公司运营公共的Registry叫做Docker Hub。用户可以<br>在Docker Hub注册账号，分享并保存自己的镜像。（Docker Hub 下在巨慢，可以构建自己的Registry）。<br></li>
-</ul>
-<p>　　<a target="_blank" rel="noopener" href="https://hub.docker.com/">Registry Hub</a><br><br></p>
-<h2 id="2-Docker安装与启动"><a href="#2-Docker安装与启动" class="headerlink" title="2.Docker安装与启动"></a>2.Docker安装与启动</h2><h3 id="2-1-安装Docker"><a href="#2-1-安装Docker" class="headerlink" title="2.1 安装Docker"></a>2.1 安装Docker</h3><ul>
-<li>ubuntu 安装<ul>
-<li>apt-get 更新 <br><br><code>sudo apt-get update</code></li>
-<li>安装Docker <br><br><code>sudo apt-get install docker.io</code></li>
-<li>查看版本 <br><br><code>docker -v</code></li>
-</ul>
-</li>
-<li>centos 安装<ul>
-<li>yum源更新 <br><br><code>sudo yum update</code></li>
-<li>安装需要的软件包，yum-util提供yum-config-manager功能，另外两个是device-mapper驱动依赖的 <br><br><code>sudo yum install -y yum-utils device-mapper-presistent-data lvm2</code></li>
-<li>设置yum源为阿里源 <br><br><code>sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></li>
-<li>安装Docker <br><br><code>sudo yum install docker-ce</code></li>
-<li>查看版本 <br><br><code>docker -v</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="2-2-设置ustc的镜像"><a href="#2-2-设置ustc的镜像" class="headerlink" title="2.2 设置ustc的镜像"></a>2.2 设置ustc的镜像</h3><p>　　ustc是老牌的Linux镜像服务提供者了，还在遥远的Ubuntu5.04版本的时候就在用。ustc的docker镜像加速器速度很快。<br>ustc docker mirror 的优势之一就是不需要注册，是真正的提供服务。</p>
-<p>　　<a target="_blank" rel="noopener" href="https://lug.ustc.edu.cn/wiki/mirrors/help/docker">https://lug.ustc.edu.cn/wiki/mirrors/help/docker</a></p>
-<p>　　编辑该文件：<br></p>
-<p>　　<code>vim /etc/docker/daemon.json</code><br>　　<br>　　在文件中添加如下内容： <br></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;registry-mirrors&quot;</span>:[<span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h3 id="2-3-Docker的启动与停止"><a href="#2-3-Docker的启动与停止" class="headerlink" title="2.3 Docker的启动与停止"></a>2.3 Docker的启动与停止</h3><p><strong>systemctl</strong>命令是系统服务管理器指令</p>
-<ul>
-<li>启动docker <br><br><code>systemctl start docker</code></li>
-<li>停止docker <br><br><code>systemctl stop docker</code></li>
-<li>重启docker <br><br><code>systemctl restart docker</code></li>
-<li>查看docker状态 <br><br><code>systemctl status docker</code></li>
-<li>开机启动 <br><br><code>systemctl enable docker</code></li>
-<li>查看docker概要信息 <br><br><code>docker info</code></li>
-<li>查看docker帮助文档 <br><br><code>docker --help</code></li>
-</ul>
-<br>
-
-<h2 id="3-常用命令"><a href="#3-常用命令" class="headerlink" title="3. 常用命令"></a>3. 常用命令</h2><h3 id="3-1-镜像相关命令"><a href="#3-1-镜像相关命令" class="headerlink" title="3.1 镜像相关命令"></a>3.1 镜像相关命令</h3><ul>
-<li>查看镜像 <br><br><code>docker images</code> <br></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>REPOSITORY</td>
-<td>镜像名称</td>
-</tr>
-<tr>
-<td>TAG</td>
-<td>镜像标签</td>
-</tr>
-<tr>
-<td>IMAGE ID</td>
-<td>镜像ID</td>
-</tr>
-<tr>
-<td>CREATED</td>
-<td>镜像的创建日期</td>
-</tr>
-<tr>
-<td>SIZE</td>
-<td>镜像大小</td>
-</tr>
-</tbody></table>
-<ul>
-<li>搜索镜像（需要从网络中查找需要的镜像） <br><br><code>docker search 镜像名称</code> <br></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NAME</td>
-<td>仓库名称</td>
-</tr>
-<tr>
-<td>DESCRIPTION</td>
-<td>镜像描述</td>
-</tr>
-<tr>
-<td>STARS</td>
-<td>用户评价，反应一个镜像的受欢迎程度</td>
-</tr>
-<tr>
-<td>OFFICIAL</td>
-<td>是否官方</td>
-</tr>
-<tr>
-<td>AUTOMATED</td>
-<td>自动创建，表示该镜像有Docker Hub自动构建流程创建的</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>拉取镜像（从中央仓库下载到本地） <br><br><code>docker pull 镜像名称</code> <br></p>
-<p>  例如，下载centos7镜像 <br><br>  <code>docker pull centos:7</code></p>
-</li>
-<li><p>删除镜像 <br><br><code>docker rmi 镜像ID</code> <br><br>  删除所有镜像 <br><br>  <code>docker rmi `docker images -q` </code>   注意`,不是’</p>
-<br>
-
-</li>
-</ul>
-<h3 id="3-2-容器相关命令"><a href="#3-2-容器相关命令" class="headerlink" title="3.2 容器相关命令"></a>3.2 容器相关命令</h3><ul>
-<li>查看容器<ul>
-<li>查看正在运行的容器 <br><br><code>docker ps</code></li>
-<li>查看所有容器 <br><br><code>docker ps -s</code></li>
-<li>查看最后一次运行的容器 <br><br><code>docker ps -l</code></li>
-<li>查看停止的容器 <br><br><code>docker ps -f status=exited</code></li>
-</ul>
-</li>
-<li>创建与启动容器<ul>
-<li>创建容器命令与参数说明 <br><br><code>docker run [参数]</code></li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-i</td>
-<td>表示运行容器</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>表示容器启动后会进入其命令行，加入这两个参数后，容器创建就能登录进去，即分配一个伪终端</td>
-</tr>
-<tr>
-<td>–name</td>
-<td>为创建的容器命名</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>表示目录映射关系（前者是宿主机目录，后者是映射到宿主机的目录），可以使用多个-v做多个目录或文件映射。注意，最好做目录映射，在宿主机上做修改，然后共享到容器上</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>表示创建一个守护式容器在后台运行（这样创建的容器不会自动登录容器，如果只加-i,-t两个参数，创建后就会自动进入容器</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>表示端口映射，前者是宿主机端口，后者是容器内的映射端口，可以使用多个-p做多个端口映射</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Smith-bee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Smith-bee的Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">نُشر في</span>
-
-      <time title="أُنشأ: 2020-10-05 21:14:45" itemprop="dateCreated datePublished" datetime="2020-10-05T21:14:45+08:00">2020-10-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
-
-
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Smith-bee</span>
-</div>
-  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>
