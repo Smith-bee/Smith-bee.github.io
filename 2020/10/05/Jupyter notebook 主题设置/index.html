@@ -188,6 +188,23 @@
         <div class="comment-container">
             <div class="comments-container">
     
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '06caf322bbc7f08e1fc0',
+            clientSecret: '37a65bdb3a1a5b32a82276451d4b5587364b71b1',
+            repo: 'MyBlogComment',
+            owner: 'Smith-bee',
+            admin: ['Smith-bee'],
+            id: location.pathname,
+            language: 'zh-Hans'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
 </div>
         </div>
     </div>
