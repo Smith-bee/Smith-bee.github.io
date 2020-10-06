@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        nodejs安装及nmp包管理工具(win10) | Smith-bee Blog
+        notebook 主题设置 | Smith-bee Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -96,7 +96,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">nodejs安装及nmp包管理工具(win10)</a></h3>
+            <h3><a class="title-hover-animation">notebook 主题设置</a></h3>
         </div>
 
         <div class="meta-info">
@@ -113,7 +113,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-        <i class="fa fa-book"></i> <span>328 Words</span>
+        <i class="fa fa-book"></i> <span>103 Words</span>
         </span>
     
     
@@ -126,84 +126,68 @@
         </div>
 
         <div class="article-content markdown-body">
-            <h1 id="nodejs安装及nmp包管理工具-win10"><a href="#nodejs安装及nmp包管理工具-win10" class="headerlink" title="nodejs安装及nmp包管理工具(win10)"></a>nodejs安装及nmp包管理工具(win10)</h1><p>包管理工具nmp包含在nodejs中，在安装时一并安装好了</p>
-<h2 id="nodejs安装"><a href="#nodejs安装" class="headerlink" title="nodejs安装"></a>nodejs安装</h2><ul>
-<li>去官网下载最新版本(<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">nodejs官网</a>)</li>
+            <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><ul>
+<li>安装jupyter主题</li>
 </ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005141858439.png" alt="image-20201005141858439"></p>
-<ul>
-<li>点击安装，选择安装路径，不建议安装在c盘，其他自己选择</li>
-</ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005142106551.png" alt="image-20201005142106551"></p>
-<ul>
-<li>等待安装完成即可</li>
-<li>检查是否成功，打开cmd命令行，输入如下命令</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005142656419.png" alt="image-20201005142656419"></p>
-<p>如上图，就成功了</p>
-<h2 id="npm的配置"><a href="#npm的配置" class="headerlink" title="npm的配置"></a>npm的配置</h2><ul>
-<li>在nodejs安装路径下(例如：E:\nodejs)，新建两个文件夹，<code>node_cache</code>和<code>node_global</code>，在命令行输入如下命令</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;E:\nodejs\node_global&quot;</span><br><span class="line">npm config set cache &quot;E:\nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade jupyterthemes</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>因为服务器在国外，使用npm包管理工具时速度可能会很慢，所以可以配置镜像加速</li>
+<li><p>操作</p>
+<ul>
+<li>查看主题列表</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry=http://registry.nom.taobao.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -l</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>可以使用如下命令查看配置信息</li>
+<li>更换主题</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t 主题名称</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ul>
-<li>在系统变量中新增<code>NODE_PATH E:\nodejs\node_global</code></li>
-</ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005144051382.png" alt="image-20201005144051382"></p>
 <ul>
-<li>在系统变量的Path中新增<code>E:\nodejs\node_global</code></li>
+<li>恢复默认</li>
 </ul>
-<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20201005144333105.png" alt="image-20201005144333105"></p>
-<p>到此为止，相关配置全部完毕了，可以正常使用了。</p>
-<h2 id="npm入门级命令"><a href="#npm入门级命令" class="headerlink" title="npm入门级命令"></a>npm入门级命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">npm install appname -g</td>
-<td align="center">安装插件</td>
-</tr>
-<tr>
-<td align="center">npm uninstall appname -g</td>
-<td align="center">卸载插件</td>
-</tr>
-<tr>
-<td align="center">npm update appname -g</td>
-<td align="center">更新插件</td>
-</tr>
-<tr>
-<td align="center">npm list</td>
-<td align="center">查看安装的插件</td>
-</tr>
-</tbody></table>
-<p><code>-g</code>:表示全局，相当于配置了全局变量，建议 <code>-g</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -r</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul>
+<li>字体css位置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Anaconda\Lib\site-packages\notebook\static\components\codemirror\lib\codemirror.css</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>字体样式</p>
+<p>在.css 文件的前几行，可直接修改</p>
+</li>
+<li><p>字体大小</p>
+<p>247行，**px</p>
+</li>
+<li><p>行间距(如果不合适，会非常难受)</p>
+<p>字体大小的下面</p>
+<p>line-height:**px</p>
+</li>
+</ul>
 
         </div>
 
         <div class="article-nav">
             
+                <div class="article-prev">
+                    <a class="prev btn"
+                       rel="prev"
+                       href="/2020/10/05/LeetcodeProblem/"
+                    >
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Leetcode刷题</span><span class="post-nav-item">Prev posts</span>
+                    </a>
+                </div>
+            
             
                 <div class="article-next">
                     <a class="next btn"
                        rel="next"
-                       href="/2020/10/05/Nginx/"
+                       href="/2020/10/05/json%E5%AD%A6%E4%B9%A0/"
                     >
-                        <span class="post-nav-title-item">Nginx学习</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                        <span class="post-nav-title-item">json学习</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             
@@ -306,7 +290,7 @@
         
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nodejs%E5%AE%89%E8%A3%85%E5%8F%8Anmp%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-win10"><span class="nav-number">1.</span> <span class="nav-text">nodejs安装及nmp包管理工具(win10)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nodejs%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">nodejs安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">npm的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm%E5%85%A5%E9%97%A8%E7%BA%A7%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">npm入门级命令</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li></ol>
     </div>
 </div>
         
