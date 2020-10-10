@@ -46,7 +46,7 @@
                     <a class=""
                        href="/"
                     >
-                        HOME
+                        首页
                     </a>
                 </li>
             
@@ -54,7 +54,7 @@
                     <a class=""
                        href="/archives"
                     >
-                        ARCHIVES
+                        归档
                     </a>
                 </li>
             
@@ -62,7 +62,7 @@
                     <a class=""
                        href="/about"
                     >
-                        ABOUT
+                        关于
                     </a>
                 </li>
             
@@ -78,17 +78,17 @@
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/">HOME</a>
+                       href="/">首页</a>
                 </li>
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/archives">ARCHIVES</a>
+                       href="/archives">归档</a>
                 </li>
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/about">ABOUT</a>
+                       href="/about">关于</a>
                 </li>
             
         </ul>
@@ -149,12 +149,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-        <i class="fa fa-book"></i> <span>2.3k Words</span>
+        <i class="fa fa-book"></i> <span>2.8k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-        <i class="fa fa-clock-o"></i> <span>8 Mins</span>
+        <i class="fa fa-clock-o"></i> <span>10 分钟</span>
         </span>
     
 </div>
@@ -284,6 +284,54 @@
 <p>诶嘿，我胡汉三又回来了</p>
 <p>注：版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。</p>
 </li>
+<li><p>工作区和暂存区</p>
+<p>Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的概念。</p>
+<ul>
+<li><strong>工作区</strong>(Working Directory)</li>
+</ul>
+<p>就是你在电脑里能看到的目录，比如我的<code>LearnMysql</code>文件夹就是一个工作区</p>
+<ul>
+<li><strong>版本库</strong>(Repository)</li>
+</ul>
+<p>工作区有一个隐藏目录<code>.git</code>，这个不算工作区，而是Git的版本库。</p>
+<p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的<strong>暂存区</strong>，还有Git为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code>。</p>
+<p><img src="https://i.loli.net/2020/10/10/MAUtGPH4ocVkCTd.jpg"></p>
+<ul>
+<li>工作流程</li>
+</ul>
+<p><strong>第一步</strong>是用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+<p><strong>第二步</strong>是用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+</li>
+<li><p>管理修改</p>
+<p>Git管理的是修改，当你用<code>git add</code>命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，<code>git commit</code>只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。</p>
+<ul>
+<li>可以用<code>git diff HEAD</code>命令查看工作区和版本库里面最新版本的区别</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD --about.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/10/10/5B7RXo2knlVxZzf.png" alt="image-20201010173159132"></p>
+</li>
+<li><p>撤销修改</p>
+<p>当你在深夜加班修改项目时，不小心在项目里添加了如下</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TMD,stupid boss</span><br></pre></td></tr></table></figure>
+
+<p>嗯<del>，难受！这个月的奖金，嗯</del></p>
+<ul>
+<li>内容只在工作区，没有使用过<code>git add</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- about.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>git checkout -- file</code>可以丢弃工作区的修改</p>
+<p><img src="https://i.loli.net/2020/10/10/kXSGWgtaNqFQwrm.png" alt="image-20201010175159357"></p>
+<p><img src="https://i.loli.net/2020/10/10/CGoVZM7KTmQUL3J.png" alt="image-20201010175359286"></p>
+<p>修改被删除了</p>
+<p>注：<code>git checkout -- file</code>命令中的<code>--</code>很重要，没有<code>--</code>，就变成了“切换到另一个分支”的命令，我们在后面的分支管理中会再次遇到<code>git checkout</code>命令。</p>
+<ul>
+<li>内容在暂存区，使用了<code>git add</code>命令，没使用<code>git commit</code>命令</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li></li>
 </ul>
 <ul>
@@ -306,7 +354,7 @@
                        rel="prev"
                        href="/2020/10/08/typora%E5%9B%BE%E5%BA%8A/"
                     >
-                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">typora图床</span><span class="post-nav-item">Prev posts</span>
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">typora图床</span><span class="post-nav-item">上一篇</span>
                     </a>
                 </div>
             
@@ -316,7 +364,7 @@
                        rel="next"
                        href="/2020/10/05/nodejs%E5%8F%8Anpm/"
                     >
-                        <span class="post-nav-title-item">nodejs及nmp</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                        <span class="post-nav-title-item">nodejs及nmp</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             
@@ -365,18 +413,18 @@
             <div class="website-count info-item">
                 
                     <span id="busuanzi_container_site_uv" style="display: none">
-                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                        访问人数 <span id="busuanzi_value_site_uv"></span>
                     </span>
                 
                 
                     <span id="busuanzi_container_site_pv" style="display: none">
-                        Totalview <span id="busuanzi_value_site_pv"></span>
+                        总访问量 <span id="busuanzi_value_site_pv"></span>
                     </span>
                 
             </div>
         
         <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a
                     href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
         </div>
     </div>
@@ -443,7 +491,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="Search..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
