@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        Git小细节 | Smith-bee Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"example.com","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"2.0.2","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Smith-bee Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-container">
+
+    <header class="page-header">
+        <div class="header-progress"></div>
+    </header>
+
+    <main class="page-main">
+
+        <div class="page-main-content">
+
+            <div class="page-main-content-top">
+                <header class="header-wrapper">
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            Smith-bee Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+            </div>
+
+            <div class="page-main-content-middle">
+
+                <main class="main-content normal-code-theme">
+
+                    
+                        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">Git小细节</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2020-10-12 00:00:00
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Git/">Git</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Git/">Git</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+        <i class="fa fa-book"></i> <span>939 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+        <i class="fa fa-clock-o"></i> <span>4 Mins</span>
+        </span>
+    
+</div>
+
+        </div>
+
+        <div class="article-content markdown-body">
+            <h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。</p>
+<p>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。</p>
+<p>Git有commit，为什么还要引入tag？</p>
+<p>“请把上周一的那个版本打包发布，commit号是6a5819e…”</p>
+<p>“一串乱七八糟的数字不好找！”</p>
+<p>如果换一个办法：</p>
+<p>“请把上周一的那个版本打包发布，版本号是v1.2”</p>
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><ul>
+<li>在Git中打标签非常简单，首先，切换到需要打标签的分支上：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br></pre></td></tr></table></figure>
+
+<p>然后，敲命令<code>git tag </code>就可以打一个新标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag v1.0</span><br></pre></td></tr></table></figure>
+
+<p>可以用命令<code>git tag</code>查看所有标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git tag</span><br><span class="line">v1.0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</li>
+</ul>
+<p>方法是找到历史提交的commit id，然后打上就可以了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty&#x3D;oneline --abbrev-commit</span><br><span class="line">12a631b (HEAD -&gt; master, tag: v1.0, origin&#x2F;master) merged bug fix 101</span><br><span class="line">4c805e2 fix bug 101</span><br><span class="line">e1e9c68 merge with no-ff</span><br><span class="line">f52c633 add merge</span><br><span class="line">cf810e4 conflict fixed</span><br><span class="line">5dc6824 &amp; simple</span><br><span class="line">14096d0 AND simple</span><br><span class="line">b17d20e branch test</span><br><span class="line">d46f35e remove test.txt</span><br><span class="line">b84166e add test.txt</span><br><span class="line">519219b git tracks changes</span><br><span class="line">e43a48b understand how stage works</span><br><span class="line">1094adb append GPL</span><br><span class="line">e475afc add distributed</span><br><span class="line">eaadf4e wrote a readme file</span><br></pre></td></tr></table></figure>
+
+<p>比方说要对<code>add merge</code>这次提交打标签，它对应的commit id是<code>f52c633</code>，敲入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag v0.9 f52c633</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再用命令<code>git tag</code>查看标签：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git tag</span><br><span class="line">v0.9</span><br><span class="line">v1.0</span><br></pre></td></tr></table></figure>
+
+<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用<code>git show </code>查看标签信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git show v0.9</span><br><span class="line">commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 21:56:54 2018 +0800</span><br><span class="line"></span><br><span class="line">    add merge</span><br><span class="line"></span><br><span class="line">diff --git a&#x2F;readme.txt b&#x2F;readme.txt</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，<code>v0.9</code>确实打在<code>add merge</code>这次提交上。</p>
+<ul>
+<li>还可以创建带有说明的标签，用<code>-a</code>指定标签名，<code>-m</code>指定说明文字：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb</span><br></pre></td></tr></table></figure>
+
+<p>用命令<code>git show </code>可以看到说明文字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ git show v0.1</span><br><span class="line">tag v0.1</span><br><span class="line">Tagger: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 22:48:43 2018 +0800</span><br><span class="line"></span><br><span class="line">version 0.1 released</span><br><span class="line"></span><br><span class="line">commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (tag: v0.1)</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 21:06:15 2018 +0800</span><br><span class="line"></span><br><span class="line">    append GPL</span><br><span class="line"></span><br><span class="line">diff --git a&#x2F;readme.txt b&#x2F;readme.txt</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h3><ul>
+<li>如果标签打错了，也可以删除：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -d v0.1</span><br><span class="line">Deleted tag &#39;v0.1&#39; (was f15b0dd)</span><br></pre></td></tr></table></figure>
+
+<p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。</p>
+<p>如果要推送某个标签到远程，使用命令<code>git push origin </code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin v1.0</span><br><span class="line">Total 0 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:michaelliao&#x2F;learngit.git</span><br><span class="line"> * [new tag]         v1.0 -&gt; v1.0</span><br></pre></td></tr></table></figure>
+
+<p>或者，一次性推送全部尚未推送到远程的本地标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin --tags</span><br><span class="line">Total 0 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:michaelliao&#x2F;learngit.git</span><br><span class="line"> * [new tag]         v0.9 -&gt; v0.9</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -d v0.9</span><br><span class="line">Deleted tag &#39;v0.9&#39; (was f52c633)</span><br></pre></td></tr></table></figure>
+
+<p>然后，从远程删除。删除命令也是push，但是格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin :refs&#x2F;tags&#x2F;v0.9</span><br><span class="line">To github.com:michaelliao&#x2F;learngit.git</span><br><span class="line"> - [deleted]         v0.9</span><br></pre></td></tr></table></figure>
+
+<p>要看看是否真的从远程库删除了标签，可以登陆GitHub查看。</p>
+
+        </div>
+
+        <div class="article-nav">
+            
+                <div class="article-prev">
+                    <a class="prev btn"
+                       rel="prev"
+                       href="/2020/10/12/Git/Git%E4%BD%BF%E7%94%A8/"
+                    >
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Git使用</span><span class="post-nav-item">Prev posts</span>
+                    </a>
+                </div>
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/2020/10/08/typora%E5%9B%BE%E5%BA%8A/"
+                    >
+                        <span class="post-nav-title-item">typora图床</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '06caf322bbc7f08e1fc0',
+            clientSecret: '37a65bdb3a1a5b32a82276451d4b5587364b71b1',
+            repo: 'MyBlogComment',
+            owner: 'Smith-bee',
+            admin: ['Smith-bee'],
+            id: location.pathname,
+            language: 'zh-Hans'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+
+                    
+
+                </main>
+
+            </div>
+
+            <div class="page-main-content-bottom">
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">Smith-bee</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        Totalview <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
+        </div>
+    </div>
+</footer>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="sidebar-tools">
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+        <li class="page-aside-toggle">
+            <i class="fa fa-bars"></i>
+        </li>
+        
+            <li class="scroll-to-top">
+                <i class="fa fa-caret-up"></i>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- page aside -->
+    <aside class="page-aside">
+        
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">标签管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.</span> <span class="nav-text">创建标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">标签操作</span></a></li></ol></li></ol>
+    </div>
+</div>
+        
+    </aside>
+
+</div>
+
+
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/main.js"></script>
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/js/code-copy.js"></script>
+
+    
+
+    
+
+
+
+</body>
+</html>

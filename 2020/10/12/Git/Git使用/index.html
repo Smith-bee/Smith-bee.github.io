@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        Git基础 | Smith-bee Blog
+        Git使用 | Smith-bee Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -46,7 +46,7 @@
                     <a class=""
                        href="/"
                     >
-                        首页
+                        HOME
                     </a>
                 </li>
             
@@ -54,7 +54,7 @@
                     <a class=""
                        href="/archives"
                     >
-                        归档
+                        ARCHIVES
                     </a>
                 </li>
             
@@ -62,7 +62,7 @@
                     <a class=""
                        href="/about"
                     >
-                        关于
+                        ABOUT
                     </a>
                 </li>
             
@@ -78,17 +78,17 @@
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/">首页</a>
+                       href="/">HOME</a>
                 </li>
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/archives">归档</a>
+                       href="/archives">ARCHIVES</a>
                 </li>
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/about">关于</a>
+                       href="/about">ABOUT</a>
                 </li>
             
         </ul>
@@ -110,7 +110,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">Git基础</a></h3>
+            <h3><a class="title-hover-animation">Git使用</a></h3>
         </div>
 
         <div class="meta-info">
@@ -149,12 +149,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-        <i class="fa fa-book"></i> <span>5.5k 字</span>
+        <i class="fa fa-book"></i> <span>7.9k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-        <i class="fa fa-clock-o"></i> <span>22 分钟</span>
+        <i class="fa fa-clock-o"></i> <span>33 Mins</span>
         </span>
     
 </div>
@@ -447,7 +447,7 @@
 <li><p>为了方便操作，Git专门提供了一个<code>cherry-pick</code>命令，让我们能复制一个特定的提交到当前分支：</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br><span class="line">$ git cherry-pick 4c805e2</span><br><span class="line">[master 1d4b803] fix bug 101</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br><span class="line">$ git cherry-pick 4c805e2</span><br><span class="line">[master 1d4b803] fix bug 101</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>Git自动给dev分支做了一次提交，注意这次提交的commit是<code>1d4b803</code>，它并不同于master的<code>4c805e2</code>，因为这两个commit只是改动相同，但确实是两个不同的commit。用<code>git cherry-pick</code>，我们就不需要在dev分支上手动再把修bug的过程重复一遍。</p>
@@ -482,6 +482,136 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -D feature-vulcan</span><br><span class="line">Deleted branch feature-vulcan (was 287773e).</span><br></pre></td></tr></table></figure>
 
 <p>终于删除成功！</p>
+<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code>。</p>
+<ul>
+<li>要查看远程库的信息，用<code>git remote</code>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>或者，用<code>git remote -v</code>显示更详细的信息：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  git@github.com:michaelliao/learngit.git (fetch)</span><br><span class="line">origin  git@github.com:michaelliao/learngit.git (push)</span><br></pre></td></tr></table></figure>
+
+<p>上面显示了可以抓取和推送的<code>origin</code>的地址。如果没有推送权限，就看不到push的地址。</p>
+<h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h4><ul>
+<li>推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>如果要推送其他分支，比如<code>dev</code>，就改成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin dev</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？<ul>
+<li><code>master</code>分支是主分支，因此要时刻与远程同步；</li>
+<li><code>dev</code>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</li>
+<li>bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</li>
+<li>feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</li>
+</ul>
+</li>
+</ul>
+<h4 id="拉取分支"><a href="#拉取分支" class="headerlink" title="拉取分支"></a>拉取分支</h4><p>多人协作时，大家都会往<code>master</code>和<code>dev</code>分支上推送各自的修改。</p>
+<ul>
+<li>现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:michaelliao/learngit.git</span><br><span class="line">Cloning into <span class="string">&#x27;learngit&#x27;</span>...</span><br><span class="line">remote: Counting objects: 40, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (21/21), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 40 (delta 14), reused 40 (delta 14), pack-reused 0</span><br><span class="line">Receiving objects: 100% (40/40), <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (14/14), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+
+<p>当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的<code>master</code>分支。不信可以用<code>git branch</code>命令看看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>现在，你的小伙伴要在<code>dev</code>分支上开发，就必须创建远程<code>origin</code>的<code>dev</code>分支到本地，于是他用这个命令创建本地<code>dev</code>分支：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev origin/dev</span><br></pre></td></tr></table></figure>
+
+<p>现在，他就可以在<code>dev</code>上继续修改，然后，时不时地把<code>dev</code>分支<code>push</code>到远程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ git add env.txt</span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">&quot;add env&quot;</span></span><br><span class="line">[dev 7a5e5dd] add env</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 env.txt</span><br><span class="line"></span><br><span class="line">$ git push origin dev</span><br><span class="line">Counting objects: 3, <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 4 threads.</span><br><span class="line">Compressing objects: 100% (2/2), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (3/3), 308 bytes | 308.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:michaelliao/learngit.git</span><br><span class="line">   f52c633..7a5e5dd  dev -&gt; dev</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>小伙伴已经向<code>origin/dev</code>分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ cat env.txt</span><br><span class="line">env</span><br><span class="line"></span><br><span class="line">$ git add env.txt</span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">&quot;add new env&quot;</span></span><br><span class="line">[dev 7bd91f1] add new env</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 env.txt</span><br><span class="line"></span><br><span class="line">$ git push origin dev</span><br><span class="line">To github.com:michaelliao/learngit.git</span><br><span class="line"> ! [rejected]        dev -&gt; dev (non-fast-forward)</span><br><span class="line">error: failed to push some refs to <span class="string">&#x27;git@github.com:michaelliao/learngit.git&#x27;</span></span><br><span class="line">hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">hint: its remote counterpart. Integrate the remote changes (e.g.</span><br><span class="line">hint: <span class="string">&#x27;git pull ...&#x27;</span>) before pushing again.</span><br><span class="line">hint: See the <span class="string">&#x27;Note about fast-forwards&#x27;</span> <span class="keyword">in</span> <span class="string">&#x27;git push --help&#x27;</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用<code>git pull</code>把最新的提交从<code>origin/dev</code>抓下来，然后，在本地合并，解决冲突，再推送：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br><span class="line">There is no tracking information <span class="keyword">for</span> the current branch.</span><br><span class="line">Please specify <span class="built_in">which</span> branch you want to merge with.</span><br><span class="line">See git-pull(1) <span class="keyword">for</span> details.</span><br><span class="line"></span><br><span class="line">    git pull &lt;remote&gt; &lt;branch&gt;</span><br><span class="line"></span><br><span class="line">If you wish to <span class="built_in">set</span> tracking information <span class="keyword">for</span> this branch you can <span class="keyword">do</span> so with:</span><br><span class="line"></span><br><span class="line">    git branch --set-upstream-to=origin/&lt;branch&gt; dev</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>git pull</code>也失败了，原因是没有指定本地<code>dev</code>分支与远程<code>origin/dev</code>分支的链接，根据提示，设置<code>dev</code>和<code>origin/dev</code>的链接：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch --set-upstream-to=origin/dev dev</span><br><span class="line">Branch <span class="string">&#x27;dev&#x27;</span> <span class="built_in">set</span> up to track remote branch <span class="string">&#x27;dev&#x27;</span> from <span class="string">&#x27;origin&#x27;</span>.</span><br></pre></td></tr></table></figure>
+
+<p>再pull：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br><span class="line">Auto-merging env.txt</span><br><span class="line">CONFLICT (add/add): Merge conflict <span class="keyword">in</span> env.txt</span><br><span class="line">Automatic merge failed; fix conflicts and <span class="keyword">then</span> commit the result.</span><br></pre></td></tr></table></figure>
+
+<p>这回<code>git pull</code>成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再push：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;fix env conflict&quot;</span></span><br><span class="line">[dev 57c53ab] fix env conflict</span><br><span class="line"></span><br><span class="line">$ git push origin dev</span><br><span class="line">Counting objects: 6, <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 4 threads.</span><br><span class="line">Compressing objects: 100% (4/4), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (6/6), 621 bytes | 621.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 6 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:michaelliao/learngit.git</span><br><span class="line">   7a5e5dd..57c53ab  dev -&gt; dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>因此，多人协作的工作模式通常是这样：</p>
+<ol>
+<li>首先，可以试图用<code>git push origin </code>推送自己的修改；</li>
+<li>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</li>
+<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
+<li>没有冲突或者解决掉冲突后，再用<code>git push origin </code>推送就能成功！</li>
+</ol>
+<p>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to  origin/</code>。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<h3 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h3><p>多人在同一个分支上协作时，很容易出现冲突。即使没有冲突，后push的童鞋不得不先pull，在本地合并，然后才能push成功。</p>
+<ul>
+<li>每次合并再push后，分支变成了这样：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line">* d1be385 (HEAD -&gt; master, origin/master) init hello</span><br><span class="line">*   e5e69f1 Merge branch <span class="string">&#x27;dev&#x27;</span></span><br><span class="line">|\  </span><br><span class="line">| *   57c53ab (origin/dev, dev) fix env conflict</span><br><span class="line">| |\  </span><br><span class="line">| | * 7a5e5dd add env</span><br><span class="line">| * | 7bd91f1 add new env</span><br><span class="line">| |/  </span><br><span class="line">* |   12a631b merged bug fix 101</span><br><span class="line">|\ \  </span><br><span class="line">| * | 4c805e2 fix bug 101</span><br><span class="line">|/ /  </span><br><span class="line">* |   e1e9c68 merge with no-ff</span><br><span class="line">|\ \  </span><br><span class="line">| |/  </span><br><span class="line">| * f52c633 add merge</span><br><span class="line">|/  </span><br><span class="line">*   cf810e4 conflict fixed</span><br></pre></td></tr></table></figure>
+
+<p>总之看上去很乱，有强迫症的童鞋会问：为什么Git的提交历史不能是一条干净的直线？</p>
+<ul>
+<li>Git有一种称为rebase的操作，有人把它翻译成“变基”。</li>
+</ul>
+<p>在和远程分支同步后，我们对<code>hello.py</code>这个文件做了两次提交。用<code>git log</code>命令看看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line">* 582d922 (HEAD -&gt; master) add author</span><br><span class="line">* 8875536 add comment</span><br><span class="line">* d1be385 (origin/master) init hello</span><br><span class="line">*   e5e69f1 Merge branch <span class="string">&#x27;dev&#x27;</span></span><br><span class="line">|\  </span><br><span class="line">| *   57c53ab (origin/dev, dev) fix env conflict</span><br><span class="line">| |\  </span><br><span class="line">| | * 7a5e5dd add env</span><br><span class="line">| * | 7bd91f1 add new env</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>注意到Git用<code>(HEAD -&gt; master)</code>和<code>(origin/master)</code>标识出当前分支的HEAD和远程origin的位置分别是<code>582d922 add author</code>和<code>d1be385 init hello</code>，本地分支比远程分支快两个提交。</p>
+<ul>
+<li>现在我们尝试推送本地分支：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">To github.com:michaelliao/learngit.git</span><br><span class="line"> ! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to <span class="string">&#x27;git@github.com:michaelliao/learngit.git&#x27;</span></span><br><span class="line">hint: Updates were rejected because the remote contains work that you <span class="keyword">do</span></span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., <span class="string">&#x27;git pull ...&#x27;</span>) before pushing again.</span><br><span class="line">hint: See the <span class="string">&#x27;Note about fast-forwards&#x27;</span> <span class="keyword">in</span> <span class="string">&#x27;git push --help&#x27;</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>很不幸，失败了，这说明有人先于我们推送了远程分支。按照经验，先pull一下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br><span class="line">remote: Counting objects: 3, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1/1), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (3/3), <span class="keyword">done</span>.</span><br><span class="line">From github.com:michaelliao/learngit</span><br><span class="line">   d1be385..f005ed4  master     -&gt; origin/master</span><br><span class="line"> * [new tag]         v1.0       -&gt; v1.0</span><br><span class="line">Auto-merging hello.py</span><br><span class="line">Merge made by the <span class="string">&#x27;recursive&#x27;</span> strategy.</span><br><span class="line"> hello.py | 1 +</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再用<code>git status</code>看看状态：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of <span class="string">&#x27;origin/master&#x27;</span> by 3 commits.</span><br><span class="line">  (use <span class="string">&quot;git push&quot;</span> to publish your <span class="built_in">local</span> commits)</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+<p>加上刚才合并的提交，现在我们本地分支比远程分支超前3个提交。</p>
+<ul>
+<li>用<code>git log</code>看看：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line">*   e0ea545 (HEAD -&gt; master) Merge branch <span class="string">&#x27;master&#x27;</span> of github.com:michaelliao/learngit</span><br><span class="line">|\  </span><br><span class="line">| * f005ed4 (origin/master) <span class="built_in">set</span> <span class="built_in">exit</span>=1</span><br><span class="line">* | 582d922 add author</span><br><span class="line">* | 8875536 add comment</span><br><span class="line">|/  </span><br><span class="line">* d1be385 init hello</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们输入命令<code>git rebase</code>试试：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line">Applying: add comment</span><br><span class="line">Using index info to reconstruct a base tree...</span><br><span class="line">M	hello.py</span><br><span class="line">Falling back to patching base and 3-way merge...</span><br><span class="line">Auto-merging hello.py</span><br><span class="line">Applying: add author</span><br><span class="line">Using index info to reconstruct a base tree...</span><br><span class="line">M	hello.py</span><br><span class="line">Falling back to patching base and 3-way merge...</span><br><span class="line">Auto-merging hello.py</span><br></pre></td></tr></table></figure>
+
+<p>输出了一大堆操作，到底是啥效果？再用<code>git log</code>看看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line">* 7e61ed4 (HEAD -&gt; master) add author</span><br><span class="line">* 3611cfe add comment</span><br><span class="line">* f005ed4 (origin/master) <span class="built_in">set</span> <span class="built_in">exit</span>=1</span><br><span class="line">* d1be385 init hello</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>原本分叉的提交现在变成一条直线了！这种神奇的操作是怎么实现的？其实原理非常简单。我们注意观察，发现Git把我们本地的提交“挪动”了位置，放到了<code>f005ed4 (origin/master) set exit=1</code>之后，这样，整个提交历史就成了一条直线。rebase操作前后，最终的提交内容是一致的，但是，我们本地的commit修改内容已经变化了，它们的修改不再基于<code>d1be385 init hello</code>，而是基于<code>f005ed4 (origin/master) set exit=1</code>，但最后的提交<code>7e61ed4</code>内容是一致的。</p>
+<ul>
+<li>这就是rebase操作的特点：把分叉的提交历史“整理”成一条直线，看上去更直观。缺点是本地的分叉提交已经被修改过了。</li>
+</ul>
+<p>最后，通过push操作把本地分支推送到远程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">Counting objects: 6, <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 4 threads.</span><br><span class="line">Compressing objects: 100% (5/5), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (6/6), 576 bytes | 576.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 6 (delta 2), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (2/2), completed with 1 <span class="built_in">local</span> object.</span><br><span class="line">To github.com:michaelliao/learngit.git</span><br><span class="line">   f005ed4..7e61ed4  master -&gt; master</span><br></pre></td></tr></table></figure>
+
+<p>再用<code>git log</code>看看效果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line">* 7e61ed4 (HEAD -&gt; master, origin/master) add author</span><br><span class="line">* 3611cfe add comment</span><br><span class="line">* f005ed4 <span class="built_in">set</span> <span class="built_in">exit</span>=1</span><br><span class="line">* d1be385 init hello</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>远程分支的提交历史也是一条直线。</p>
 
         </div>
 
@@ -491,9 +621,9 @@
                 <div class="article-next">
                     <a class="next btn"
                        rel="next"
-                       href="/2020/10/08/typora%E5%9B%BE%E5%BA%8A/"
+                       href="/2020/10/12/Git/Git%E5%B0%8F%E7%BB%86%E8%8A%82/"
                     >
-                        <span class="post-nav-title-item">typora图床</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
+                        <span class="post-nav-title-item">Git小细节</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             
@@ -542,18 +672,18 @@
             <div class="website-count info-item">
                 
                     <span id="busuanzi_container_site_uv" style="display: none">
-                        访问人数 <span id="busuanzi_value_site_uv"></span>
+                        Visitor Count <span id="busuanzi_value_site_uv"></span>
                     </span>
                 
                 
                     <span id="busuanzi_container_site_pv" style="display: none">
-                        总访问量 <span id="busuanzi_value_site_pv"></span>
+                        Totalview <span id="busuanzi_value_site_pv"></span>
                     </span>
                 
             </div>
         
         <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
                     href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
         </div>
     </div>
@@ -600,7 +730,7 @@
         
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">添加远程库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%85%8B%E9%9A%86"><span class="nav-number">1.2.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="nav-number">2.1.</span> <span class="nav-text">创建与合并分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.1.2.</span> <span class="nav-text">实战</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%86%B2%E7%AA%81"><span class="nav-number">2.2.</span> <span class="nav-text">分支冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%AD%96%E7%95%A5"><span class="nav-number">2.3.</span> <span class="nav-text">分支管理策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E4%B8%AD"><span class="nav-number">2.3.2.</span> <span class="nav-text">实际开发中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bug%E5%88%86%E6%94%AF"><span class="nav-number">2.4.</span> <span class="nav-text">Bug分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature%E5%88%86%E6%94%AF"><span class="nav-number">2.5.</span> <span class="nav-text">Feature分支</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">添加远程库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%85%8B%E9%9A%86"><span class="nav-number">1.2.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="nav-number">2.1.</span> <span class="nav-text">创建与合并分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.1.2.</span> <span class="nav-text">实战</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%86%B2%E7%AA%81"><span class="nav-number">2.2.</span> <span class="nav-text">分支冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%AD%96%E7%95%A5"><span class="nav-number">2.3.</span> <span class="nav-text">分支管理策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E4%B8%AD"><span class="nav-number">2.3.2.</span> <span class="nav-text">实际开发中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bug%E5%88%86%E6%94%AF"><span class="nav-number">2.4.</span> <span class="nav-text">Bug分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature%E5%88%86%E6%94%AF"><span class="nav-number">2.5.</span> <span class="nav-text">Feature分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C"><span class="nav-number">2.6.</span> <span class="nav-text">多人协作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E5%88%86%E6%94%AF"><span class="nav-number">2.6.1.</span> <span class="nav-text">推送分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%89%E5%8F%96%E5%88%86%E6%94%AF"><span class="nav-number">2.6.2.</span> <span class="nav-text">拉取分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">2.6.3.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rebase"><span class="nav-number">2.7.</span> <span class="nav-text">Rebase</span></a></li></ol></li></ol>
     </div>
 </div>
         
@@ -620,7 +750,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜索..."
+                       placeholder="Search..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
