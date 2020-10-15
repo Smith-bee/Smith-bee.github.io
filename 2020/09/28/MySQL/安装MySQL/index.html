@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        Hello World | Smith-bee Blog
+        MySQL安装与登录(Linux) | Smith-bee Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -110,15 +110,37 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">Hello World</a></h3>
+            <h3><a class="title-hover-animation">MySQL安装与登录(Linux)</a></h3>
         </div>
 
         <div class="meta-info">
             <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2020-10-05 21:14:45
+        <i class="fa fa-calendar-o"></i> 2020-09-28 00:00:00
     </span>
     
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/MySQL/">MySQL</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MySQL/">MySQL</a>
+                    </li>
+                
+            </ul>
+        </span>
     
     
         <span class="article-pv article-meta-item">
@@ -127,7 +149,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-        <i class="fa fa-book"></i> <span>75 Words</span>
+        <i class="fa fa-book"></i> <span>418 Words</span>
         </span>
     
     
@@ -140,19 +162,50 @@
         </div>
 
         <div class="article-content markdown-body">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+            <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><p>使用apt包管理器进行安装</p>
+<ul>
+<li>首先保证你的软件包是最新的，执行下面的命令更新</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装mysql-server软件包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据提示完成安装，输入”yes”</li>
+</ul>
+<h3 id="登录MySQL"><a href="#登录MySQL" class="headerlink" title="登录MySQL"></a>登录MySQL</h3><p>正常登录会出错(由于在安装时没有设置root密码)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>下面是没有设置root密码或root密码忘记的解决办法</p>
+<ol>
+<li>修改<code>mysqld.cnf</code>配置文件</li>
+</ol>
+<p>此配置文件应该在<code>/etc/mysql/mysql.conf.d/mysqld.cnf</code> ,使用<code>vim</code>编辑器进行修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 mysqld 块中添加下面一句</span></span><br><span class="line">skip-grant-tables <span class="comment"># 可以跳过密码直接登录</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><img src="https://www.linuxidc.com/upload/2020_03/20030717497763.png" alt="Ubuntu 18.04.4 LTS上安装和使用MySQL及忘记root密码的解决"></p>
+<p>保存退出后，需要重启MySQL服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service mysql restart <span class="comment">#重启</span></span><br><span class="line">service mysql start <span class="comment">#启动</span></span><br><span class="line">service mysql status <span class="comment">#查看状态信息</span></span><br><span class="line">service mysql stop <span class="comment">#关闭</span></span><br></pre></td></tr></table></figure>
+
+<p>现在就可以进入mysql了，嘻嘻</p>
+<ol start="2">
+<li>设置root密码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p # 回车进入MySQL</span><br><span class="line"># 分别执行下面三句话设置密码</span><br><span class="line">use mysql; # 回车</span><br><span class="line">update user set authentication_string&#x3D;password(&quot;你的密码&quot;),plugin&#x3D;&#39;mysql_native_password&#39; where user&#x3D;&#39;root&#39;; # 回车</span><br><span class="line">flush privileges; # 回车</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在MySQL中查看下面的语句输出的信息</span><br><span class="line">select user,plugin from user;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.linuxidc.com/upload/2020_03/temp_20030718019596.png" alt="Ubuntu 18.04.4 LTS上安装和使用MySQL及忘记root密码的解决"></p>
+<p>这样即可！</p>
+<ol start="3">
+<li>回去将第一步的配置文件在修改一下，将我们之前添加的语句注释掉(#)或删除，就可以用自己的密码登陆了，接下来就该是你的操作了，嘻嘻</li>
+</ol>
+<p>注：本文使用的是MySQL-5.7版本，如果是MySQL-8版本中，上面的修改密码的语句可能会出现错误，可以用下面的语句试试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;你的密码&#39;;</span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -161,21 +214,12 @@
                 <div class="article-prev">
                     <a class="prev btn"
                        rel="prev"
-                       href="/2020/10/05/docker/"
+                       href="/2020/10/05/hello-world/"
                     >
-                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Docker学习</span><span class="post-nav-item">Prev posts</span>
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Hello World</span><span class="post-nav-item">Prev posts</span>
                     </a>
                 </div>
             
-            
-                <div class="article-next">
-                    <a class="next btn"
-                       rel="next"
-                       href="/2020/09/28/MySQL/%E5%AE%89%E8%A3%85MySQL/"
-                    >
-                        <span class="post-nav-title-item">MySQL安装与登录(Linux)</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
-                    </a>
-                </div>
             
         </div>
 
@@ -280,7 +324,7 @@
         
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85MySQL"><span class="nav-number">1.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%BD%95MySQL"><span class="nav-number">2.</span> <span class="nav-text">登录MySQL</span></a></li></ol>
     </div>
 </div>
         
