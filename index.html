@@ -32,299 +32,72 @@
         <div class="page-main-content">
 
             <div class="page-main-content-top">
-                @require "../common/variables.styl";
-@require "../common/magic-theme.styl";
-@require "../common/animated.styl";
+                <header class="header-wrapper">
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            Smith-bee Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class="active"
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class="active"
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
 
-$header-progress-height = 2.8px;
-
-.header-wrapper {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background-color);
-  padding-top: $header-progress-height;
-
-  if (hexo-config('magic.enable') == true) {
-    magic-style(1.02, 1.02);
-  }
-
-  .header-content {
-    width: $main-content-width;
-    height: 100%;
-
-    transition();
-
-    +ils-tablet() {
-      width: $main-content-width-tablet !important;
-    }
-
-    +ils-mobile() {
-      width: $main-content-width-mobile !important;
-    }
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-
-    z-index: $z-index-5;
-
-    .logo-title {
-      font-size: 2.2em;
-      font-weight: bold;
-
-      +ils-tablet() {
-        font-size: 2.0em;
-      }
-
-      +ils-mobile() {
-        font-size: 1.8em;
-      }
-
-      letter-spacing: 1px;
-      color: var(--first-text-color);
-      transition();
-    }
-
-    .menu-list {
-
-      +ils-tablet() {
-        display: none;
-      }
-
-      .menu-item {
-        float: left;
-        position: relative;
-        margin-left: 30px;
-
-        &:first-child {
-          margin-left: 0;
-        }
-
-        a {
-
-          &:hover {
-
-            color: var(--normal-text-color);
-
-            &::after {
-              content: '';
-              position: absolute;
-              bottom: -10px;
-              left: 50%;
-              width: 100%;
-              height: 2px;
-              transform: translateX(-50%);
-              background: var(--primary-color);
-              transition();
-            }
-          }
-
-        }
-
-
-        .active {
-          color: var(--second-text-color);
-          font-weight: bold;
-          transition();
-
-          &::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 100%;
-            height: 2px;
-            transform: translateX(-50%);
-            background: var(--primary-color)
-            transition();
-          }
-        }
-      }
-
-    }
-
-
-    .menu-bar {
-      display: none;
-      position: relative;
-      cursor: pointer;
-
-      +ils-tablet() {
-        display: block;
-      }
-
-
-      .menu-bar-middle {
-        width: 18px;
-        height: 2px;
-        margin: 6px 0;
-        position: relative;
-        background: var(--normal-text-color);
-        transition();
-
-        &::before {
-          content: '';
-          position: absolute;
-          top: -6px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: var(--normal-text-color);
-          transition();
-        }
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -6px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: var(--normal-text-color);
-          transition();
-        }
-      }
-    }
-  }
-
-
-  .header-drawer {
-    width: 100%;
-    padding: $header-height 0 20px 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    background: var(--background-color);
-    transition();
-    z-index: $z-index-2;
-
-    .drawer-menu-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-
-      .drawer-menu-item {
-
-        a {
-          display: block;
-          margin: 8px auto;
-          padding: 0 20px;
-          border-radius: 20px;
-          text-align: center;
-          line-height: 34px;
-          color: var(--normal-text-color);
-          transition();
-
-          &:hover {
-            color: var(--second-text-color);
-            font-weight: bold;
-          }
-        }
-
-        .active {
-          border: 1px solid var(--normal-text-color);
-          color: var(--second-text-color);
-          font-weight: bold;
-        }
-
-      }
-
-
-    }
-  }
-
-
-  .window-mask {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: $z-index-1;
-    visibility: hidden;
-    opacity: 0;
-    transition();
-  }
-
-
-}
-
-
-.header-drawer-show {
-
-  .header-content {
-    .menu-bar {
-      .menu-bar-middle {
-
-        background: transparent;
-
-        &::before {
-          transform: translateY(6px) rotate(45deg);
-        }
-
-
-        &::after {
-          transform: translateY(-6px) rotate(-45deg);
-        }
-      }
-    }
-  }
-
-
-  .header-drawer {
-    transform: scaleY(1);
-  }
-
-  .window-mask {
-    visibility: visible;
-    opacity: 1;
-  }
-
-}
-
-.header-wrapper-shrink {
-
-  if (hexo-config('magic.enable') == false) {
-    box-shadow: 0 1px 2px var(--border-color);
-  }
-
-  .header-content {
-
-    .logo-title {
-      transform: scale(0.8);
-      transform-origin: left top;
-    }
-
-    .menu-list {
-      .menu-item {
-        a:hover {
-          &::after {
-            bottom: -20px;
-          }
-        }
-
-        .active::after {
-          bottom: -20px;
-        }
-      }
-
-    }
-  }
-
-
-  .header-drawer {
-    padding: $header-shrink-height 0 20px 0;
-  }
-}
 
             </div>
 
@@ -911,19 +684,15 @@ nodejs安装
     </ul>
 
     <div class="home-paginator">
-        .paginator {
+        <div class="paginator">
+    
 
-  margin-top: 30px;
-
-  a.prev {
-    float: left;
-  }
-
-  a.next {
-    float: right;
-  }
-
-}
+    
+        <a class="next btn"
+           href="/page/2/"
+        >Next</a>
+    
+</div>
 
     </div>
 </div>
@@ -936,110 +705,66 @@ nodejs安装
             </div>
 
             <div class="page-main-content-bottom">
-                @require '../common/variables.styl'
-.footer {
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">Smith-bee</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        Totalview <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
+        </div>
+    </div>
+</footer>
 
-  color: var(--third-text-color);
-
-  a {
-    color: var(--third-text-color);
-
-    &:hover {
-      color: $primary-color;
-    }
-  }
-
-  .info-container {
-    padding-bottom: 10px;
-    text-align: center;
-  }
-
-  .info-item {
-    margin: 5px 0;
-  }
-
-}
             </div>
         </div>
     </main>
 
     <div class="sidebar-tools">
-        @require "../common/variables.styl";
-@require "../common/magic-theme.styl";
-@require "../common/magic-theme.styl";
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
 
-$li-border-radius = 5px;
-$li-margin-bottom = 12px;
-
-.tools-container {
-
-  .tools-list {
-    li {
-      cursor: pointer;
-      width: $tool-button-width;
-      height: $tool-button-width;
-      border-radius: $li-border-radius;
-      font-size: 1.2em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: $li-margin-bottom;
-      background: var(--background-color);
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      if (hexo-config('magic.enable') == true) {
-        magic-style(1.1, 1.1);
-      } else {
-        border: 1px solid var(--border-color);
-      }
-
-      &:hover {
-        transition();
-        color: var(--background-color);
-        background: var(--primary-color);
-      }
-
-      &.rss {
-
-        a {
-          border-radius: $li-border-radius;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-
-          &:hover {
-            transition();
-            color: var(--background-color);
-            background: var(--primary-color);
-          }
-        }
-      }
-
-
-      &.scroll-to-top {
-        display: none;
-        position: fixed;
-        right: $component-interspace;
-        bottom: $component-interspace;
-      }
-
-      &.page-aside-toggle {
-        display: none;
-
-        +ils-tablet() {
-          display: none !important;
-        }
-      }
-
-    }
-  }
-
-}
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+        <li class="page-aside-toggle">
+            <i class="fa fa-bars"></i>
+        </li>
+        
+            <li class="scroll-to-top">
+                <i class="fa fa-caret-up"></i>
+            </li>
+        
+    </ul>
+</div>
 
     </div>
 
@@ -1052,136 +777,33 @@ $li-margin-bottom = 12px;
 
 
 
-    @require '../common/variables.styl'
-
-$icon-size = 1.2em;
-
-.search-pop-overlay {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: $z-index-8;
-}
-
-
-.search-popup {
-  background: var(--background-color);
-  border-radius: 2px;
-  height: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  position: fixed;
-  top: 10%;
-  width: 70%;
-
-  +ils-tablet() {
-    width: 80%;
-  }
-
-  +ils-mobile() {
-    width: 90%;
-  }
-
-  z-index: $z-index-6;
-
-  .search-icon, .popup-btn-close {
-    color: var(--normal-text-color);
-    font-size: $icon-size;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-  }
-
-  .popup-btn-close {
-    cursor: pointer;
-
-    &:hover .fa {
-      color: var(--first-text-color);
-    }
-  }
-
-  .search-header {
-    background: var(--fourth-text-color);
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    display: flex;
-    padding: 10px;
-  }
-}
-
-
-input.search-input {
-  background: transparent;
-  border: 0;
-  outline: 0;
-  width: 100%;
-  font-size: 1.2em;
-  color: var(--normal-text-color);
-
-  &::-webkit-search-cancel-button {
-    display: none;
-  }
-}
-
-
-.search-popup {
-
-  .search-input-container {
-    flex-grow: 1;
-    padding: 2px;
-  }
-
-  ul.search-result-list {
-    margin: 10px 5px;
-    width: 100%;
-
-    li {
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 20px;
-
-      a {
-        display: block;
-        margin-bottom: 16px;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  p.search-result {
-    margin 0
-    padding 0
-  }
-
-  a.search-result-title {
-    font-weight: bold;
-  }
-
-  .search-keyword {
-    border-bottom: 1px dashed var(--primary-color);
-    color: var(--primary-color);
-    font-weight: bold;
-  }
-
-  #search-result {
-    display: flex;
-    height: calc(100% - 55px);
-    overflow: auto;
-    padding: 5px 25px;
-  }
-
-  #no-result {
-    color: var(--third-text-color);
-    margin: auto;
-  }
-}
-
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
