@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        汉诺塔问题 | Smith-bee Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"example.com","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"2.0.2","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Smith-bee Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-container">
+
+    <header class="page-header">
+        <div class="header-progress"></div>
+    </header>
+
+    <main class="page-main">
+
+        <div class="page-main-content">
+
+            <div class="page-main-content-top">
+                <header class="header-wrapper">
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            Smith-bee Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        首页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        归档
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        关于
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+            </div>
+
+            <div class="page-main-content-middle">
+
+                <main class="main-content normal-code-theme">
+
+                    
+                        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">汉诺塔问题</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2020-11-12 00:00:00
+    </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+        <i class="fa fa-book"></i> <span>1.3k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+        <i class="fa fa-clock-o"></i> <span>5 分钟</span>
+        </span>
+    
+</div>
+
+        </div>
+
+        <div class="article-content markdown-body">
+            <h2 id="汉诺塔问题介绍"><a href="#汉诺塔问题介绍" class="headerlink" title="汉诺塔问题介绍"></a>汉诺塔问题介绍</h2><p>汉诺塔问题是一个经典的问题。汉诺塔（Hanoi Tower），又称河内塔，源于印度一个古老传说。大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，任何时候，在小圆盘上都不能放大圆盘，且在三根柱子之间一次只能移动一个圆盘。</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20201112130124165.png" alt="image-20201112130124165"></p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>这里我们只考虑最常用的解法，递归方法，把所有的圆盘n分为两个部分：</p>
+<ul>
+<li>上层的n-1个圆盘</li>
+<li>最下层的第n个圆盘</li>
+</ul>
+<p>解题步骤：</p>
+<blockquote>
+<p>1、</p>
+<p>​        把n-1个圆盘，从a移动到b</p>
+<p>​        把第n个圆盘，从a移动到c</p>
+<p>2、</p>
+<p>​        把n-1个圆盘，从b移动到c</p>
+</blockquote>
+<p>n-1个圆盘的移动又会用相同的解题步骤来解决，直到一个圆盘为止</p>
+<h2 id="程序实现"><a href="#程序实现" class="headerlink" title="程序实现"></a>程序实现</h2><ul>
+<li>c</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hanno</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> a[],<span class="keyword">char</span> b[],<span class="keyword">char</span> c[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;圆盘从%s移动到%s\n&quot;</span>,a,c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        hanno(n - <span class="number">1</span>,a,c,b);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;圆盘从%s移动到%s\n&quot;</span>,a,c);</span><br><span class="line">        hanno(n - <span class="number">1</span>,b,a,c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    hanno(<span class="number">3</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20201113110615041.png" alt="image-20201113110615041"></p>
+<ul>
+<li>java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.smithbee.day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HannoTower</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        hannoo(<span class="number">3</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoo</span><span class="params">(<span class="keyword">int</span> n,String a,String b,String c)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">            System.out.println(a + <span class="string">&quot;移动到&quot;</span> + c);<span class="comment">//问题的最基础的解决方式，也是递归算法结束的条件</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            hannoo(n - <span class="number">1</span>,a,c,b);<span class="comment">//步骤一，将n-1个圆盘从a移动到b</span></span><br><span class="line">            System.out.println(a + <span class="string">&quot;移动到&quot;</span> + c);<span class="comment">//步骤一，将第n个圆盘从a移动到c</span></span><br><span class="line">            hannoo(n - <span class="number">1</span>,b,a,c);<span class="comment">//步骤二，将n-1个圆盘从b移动到c</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20201112135922522.png" alt="image-20201112135922522"></p>
+<ul>
+<li>python </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#汉诺塔问题</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanno</span>(<span class="params">n,a,b,c</span>):</span></span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">&#x27;圆盘从&#123;0&#125;移动到&#123;1&#125;&#x27;</span>.format(a,c))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        hanno(n - <span class="number">1</span>,a,c,b)</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">&#x27;圆盘从&#123;0&#125;移动到&#123;1&#125;&#x27;</span>.format(a,c))</span><br><span class="line">        hanno(n - <span class="number">1</span>,b,a,c)</span><br><span class="line">        </span><br><span class="line">hanno(<span class="number">3</span>,<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20201112140003370.png" alt="image-20201112140003370"></p>
+<ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hanno</span><span class="params">(<span class="keyword">int</span> n,<span class="built_in">string</span> a,<span class="built_in">string</span> b,<span class="built_in">string</span> c)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    hanno(<span class="number">3</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hanno</span><span class="params">(<span class="keyword">int</span> n,<span class="built_in">string</span> a,<span class="built_in">string</span> b,<span class="built_in">string</span> c)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;圆盘从&quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;移动到&quot;</span> &lt;&lt; c &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        hanno(n - <span class="number">1</span>,a,c,b);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;圆盘从&quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;移动到&quot;</span> &lt;&lt; c &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        hanno(n - <span class="number">1</span>,b,a,c);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20201112141556314.png" alt="image-20201112141556314"></p>
+<ul>
+<li>go</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hanno</span><span class="params">(n <span class="keyword">int</span>,a <span class="keyword">string</span>,b <span class="keyword">string</span>,c <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> n == <span class="number">1</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">&quot;圆盘从%s移动到%s\n&quot;</span>,a,c)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		hanno(n - <span class="number">1</span>,a,c,b)</span><br><span class="line">		fmt.Printf(<span class="string">&quot;圆盘从%s移动到%s\n&quot;</span>,a,c)</span><br><span class="line">		hanno(n - <span class="number">1</span>,b,a,c)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	hanno(<span class="number">3</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20201112144604382.png" alt="image-20201112144604382"></p>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><ul>
+<li>递归算法的四条基本准则</li>
+</ul>
+<blockquote>
+<p>1.基准情形。必须有某些基准情形，它无需递归就能解出。<br>2.不断推进。对于那些需要递归求解的情形，每一次递归调用都必须要使求解的状况朝接近基准情形的方向推进。<br>3.设计法则。假设所有的递归调用都能运行。<br>4.合成效益法则。在求解同一个问题的同一实例时，切勿在不同的递归调用中做重复性的工作<br>——-摘自《数据结构与算法分析（机械工业出版社 Mark Allen Weiss著）》</p>
+</blockquote>
+<ul>
+<li>递归算法的理解</li>
+</ul>
+<blockquote>
+<p>1.在求f(n, other variables)的时候，你就默认f(n -1, other variables)已经被求出来了——至于怎么求的，这个是计算机通过回溯求出来的。</p>
+</blockquote>
+<blockquote>
+<p>PS:这里用到了一种叫做栈(stack)的先进后出的数据结构，所以递归输出的答案一般是自下而上的。</p>
+</blockquote>
+<blockquote>
+<p>2.递归和二叉树是密切相关的。可以尝试通过二叉树的数据结构来理解递归是如何将一个问题拆分成若干子问题，求解再回溯的。这里可以参考以下快速排序(QuickSort)的过程（快速排序的核心思想是分治，分治即分而治之，通过递归将原问题分解为若干容易求解的子问题，再通过递归将这些子问题联系起来并向二叉树的上层回溯，最终求解出原问题）</p>
+</blockquote>
+<ul>
+<li>递归算法的注意</li>
+</ul>
+<blockquote>
+<p>1.递归的结束条件（不写会死循环，TLE）</p>
+<p>2.递归最后一层和其他有关系的层的关系怎样用非递归函数来表达</p>
+<p>比如：斐波纳契亚数列，（1）当n==1和n==2的时候f(n)=1，这就是递归的终止条件。给了终止条件，计算机才能进行求解子问题并回溯，最终求出f(n)</p>
+</blockquote>
+
+        </div>
+
+        <div class="article-nav">
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/2020/10/25/%E8%AF%AD%E8%A8%80%E5%AF%B9%E6%AF%94/"
+                    >
+                        <span class="post-nav-title-item">语言对比</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '06caf322bbc7f08e1fc0',
+            clientSecret: '37a65bdb3a1a5b32a82276451d4b5587364b71b1',
+            repo: 'MyBlogComment',
+            owner: 'Smith-bee',
+            admin: ['Smith-bee'],
+            id: location.pathname,
+            language: 'zh-Hans'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+
+                    
+
+                </main>
+
+            </div>
+
+            <div class="page-main-content-bottom">
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">Smith-bee</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        访问人数 <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        总访问量 <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
+        </div>
+    </div>
+</footer>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="sidebar-tools">
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+        <li class="page-aside-toggle">
+            <i class="fa fa-bars"></i>
+        </li>
+        
+            <li class="scroll-to-top">
+                <i class="fa fa-caret-up"></i>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- page aside -->
+    <aside class="page-aside">
+        
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">汉诺塔问题介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">程序实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">4.</span> <span class="nav-text">递归</span></a></li></ol>
+    </div>
+</div>
+        
+    </aside>
+
+</div>
+
+
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/main.js"></script>
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/js/code-copy.js"></script>
+
+    
+
+    
+
+
+
+</body>
+</html>
