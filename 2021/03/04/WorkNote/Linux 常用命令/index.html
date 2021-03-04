@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        Linux常用命令 | Smith-bee Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"example.com","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"2.0.2","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Smith-bee Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-container">
+
+    <header class="page-header">
+        <div class="header-progress"></div>
+    </header>
+
+    <main class="page-main">
+
+        <div class="page-main-content">
+
+            <div class="page-main-content-top">
+                <header class="header-wrapper">
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            Smith-bee Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+            </div>
+
+            <div class="page-main-content-middle">
+
+                <main class="main-content normal-code-theme">
+
+                    
+                        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">Linux常用命令</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2021-03-04 00:00:00
+    </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+        <i class="fa fa-book"></i> <span>1.9k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+        <i class="fa fa-clock-o"></i> <span>7 Mins</span>
+        </span>
+    
+</div>
+
+        </div>
+
+        <div class="article-content markdown-body">
+            <h1 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h1><h2 id="01-常用的RPM软件包命令"><a href="#01-常用的RPM软件包命令" class="headerlink" title="01. 常用的RPM软件包命令"></a>01. 常用的RPM软件包命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">rpm -ivh filename.rpm</td>
+<td align="center">安装软件</td>
+</tr>
+<tr>
+<td align="center">rpm -Uvh filename.rpm</td>
+<td align="center">升级软件</td>
+</tr>
+<tr>
+<td align="center">rpm -e filename.rpm</td>
+<td align="center">卸载软件</td>
+</tr>
+<tr>
+<td align="center">rmp -qpi filename.rpm</td>
+<td align="center">查看软件的描述信息</td>
+</tr>
+<tr>
+<td align="center">rmp -qpl filename.rpm</td>
+<td align="center">列出软件的文件信息</td>
+</tr>
+<tr>
+<td align="center">rpm -qf filename</td>
+<td align="center">查询文件属于哪个RPM</td>
+</tr>
+</tbody></table>
+<h2 id="02-包管理工具apt-get常用命令"><a href="#02-包管理工具apt-get常用命令" class="headerlink" title="02. 包管理工具apt-get常用命令"></a>02. 包管理工具apt-get常用命令</h2><p>apt : Advanced Package Tool</p>
+<p>一般使用这个命令时，需要权限，前面加上 sudo</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sudo apt-get update</td>
+<td align="center">更新本地包数据库列表</td>
+</tr>
+<tr>
+<td align="center">sudo apt-get upgrade</td>
+<td align="center">仅升级已安装的软件包</td>
+</tr>
+<tr>
+<td align="center">sudo apt-get dist-upgrade</td>
+<td align="center">可添加或删除程序包，以满足新的依赖</td>
+</tr>
+<tr>
+<td align="center">apt-cache search 搜索内容</td>
+<td align="center">查找/搜索软件包</td>
+</tr>
+<tr>
+<td align="center">apt-cache show 包名</td>
+<td align="center">查看某个软件包的信息</td>
+</tr>
+<tr>
+<td align="center">dpkg -s 包名</td>
+<td align="center">显示包的当前安装状态</td>
+</tr>
+</tbody></table>
+<ul>
+<li>从软件仓库安装包</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sudo apt-get install 包名</td>
+<td align="center">安装软件包</td>
+</tr>
+<tr>
+<td align="center">sudo apt-get install 包1 包2 ……</td>
+<td align="center">安装所有列出的包</td>
+</tr>
+<tr>
+<td align="center">sudo apt-get install -y 包名</td>
+<td align="center">无需提示直接安装</td>
+</tr>
+</tbody></table>
+<ul>
+<li>从本地文件系统直接安装包</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sudo dpkg -i 包名.deb</td>
+<td align="center">从本地系统直接安装包</td>
+</tr>
+</tbody></table>
+<ul>
+<li>移除已安装的包</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sudo apt-get remove 包名</td>
+<td align="center">移除已安装的包</td>
+</tr>
+<tr>
+<td align="center">sudo apt-get autoremove</td>
+<td align="center">自动移除已知不需要的包</td>
+</tr>
+</tbody></table>
+<h2 id="03-服务管理工具systemctl常用命令"><a href="#03-服务管理工具systemctl常用命令" class="headerlink" title="03. 服务管理工具systemctl常用命令"></a>03. 服务管理工具systemctl常用命令</h2><ul>
+<li>管理服务</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">systemctl start foo.service</td>
+<td align="center">启动服务</td>
+</tr>
+<tr>
+<td align="center">systemctl restart foo.service</td>
+<td align="center">重启服务</td>
+</tr>
+<tr>
+<td align="center">systemctl stop foo.service</td>
+<td align="center">停止服务</td>
+</tr>
+<tr>
+<td align="center">systemctl reload foo.service</td>
+<td align="center">重新加载配置文件（不终止服务）</td>
+</tr>
+<tr>
+<td align="center">systemctl status foo.service</td>
+<td align="center">查看服务状态</td>
+</tr>
+</tbody></table>
+<ul>
+<li>设置开机启动信息</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">systemctl enable foo.service</td>
+<td align="center">开机自动启动</td>
+</tr>
+<tr>
+<td align="center">systemctl disable foo.service</td>
+<td align="center">开机不自动启动</td>
+</tr>
+<tr>
+<td align="center">systemctl is-enabled foo.service</td>
+<td align="center">查看特定服务是否为开机自动启动</td>
+</tr>
+<tr>
+<td align="center">systemctl list-unit-files –type=service</td>
+<td align="center">查看各个级别下服务的启动与禁止情况</td>
+</tr>
+</tbody></table>
+<p>注：.service 后缀可以省略</p>
+<h2 id="04-帮助命令man常用信息"><a href="#04-帮助命令man常用信息" class="headerlink" title="04. 帮助命令man常用信息"></a>04. 帮助命令man常用信息</h2><ul>
+<li>man命令中常用按键以及用途</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">空格键</td>
+<td align="center">向下翻一页</td>
+</tr>
+<tr>
+<td align="center">PaGe down</td>
+<td align="center">向下翻一页</td>
+</tr>
+<tr>
+<td align="center">PaGe up</td>
+<td align="center">向上翻一页</td>
+</tr>
+<tr>
+<td align="center">home</td>
+<td align="center">直接前往首页</td>
+</tr>
+<tr>
+<td align="center">end</td>
+<td align="center">直接前往尾页</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">从上至下搜索某个关键词，如 /linux</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">从下至上搜索某个关键词，如 ?linux</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="center">定位到下一个搜索到的关键词</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="center">定位到上一个搜索到的关键词</td>
+</tr>
+<tr>
+<td align="center">q</td>
+<td align="center">退出帮助文档</td>
+</tr>
+</tbody></table>
+<ul>
+<li>man命令帮助信息的结构以及意义</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">结构名称</th>
+<th align="center">代表意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">NAME</td>
+<td align="center">命令的名称</td>
+</tr>
+<tr>
+<td align="center">SYNOPSIS</td>
+<td align="center">参数的大致使用方法</td>
+</tr>
+<tr>
+<td align="center">DESCRIPTION</td>
+<td align="center">介绍说明</td>
+</tr>
+<tr>
+<td align="center">EXAMPLES</td>
+<td align="center">演示（附带简单说明）</td>
+</tr>
+<tr>
+<td align="center">OVERVIEW</td>
+<td align="center">概述</td>
+</tr>
+<tr>
+<td align="center">DEFAULTS</td>
+<td align="center">默认的功能</td>
+</tr>
+<tr>
+<td align="center">OPTIONS</td>
+<td align="center">具体的可用选项（带介绍）</td>
+</tr>
+<tr>
+<td align="center">ENVIRONMENT</td>
+<td align="center">环境变量</td>
+</tr>
+<tr>
+<td align="center">FILES</td>
+<td align="center">用到的文件</td>
+</tr>
+<tr>
+<td align="center">SEE ALSO</td>
+<td align="center">相关的资料</td>
+</tr>
+<tr>
+<td align="center">HISTORY</td>
+<td align="center">维护历史与联系方式</td>
+</tr>
+</tbody></table>
+<h2 id="05-常用系统工作命令"><a href="#05-常用系统工作命令" class="headerlink" title="05. 常用系统工作命令"></a>05. 常用系统工作命令</h2><ul>
+<li>echo 命令</li>
+</ul>
+<p>用途：在终端输出字符串或变量提取后的值</p>
+<p>格式：<code>echo [字符串|$变量]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210301214130039.png" alt="image-20210301214130039"></p>
+<ul>
+<li>date 命令</li>
+</ul>
+<p>用途：显示及设置系统的时间或日期</p>
+<p>格式：<code>date [选项] [+指定的格式]</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%t</td>
+<td align="center">跳格[Tab键]</td>
+</tr>
+<tr>
+<td align="center">%H</td>
+<td align="center">小时（00~23）</td>
+</tr>
+<tr>
+<td align="center">%I（大写i）</td>
+<td align="center">小时（00~12）</td>
+</tr>
+<tr>
+<td align="center">%M</td>
+<td align="center">分钟（00~59）</td>
+</tr>
+<tr>
+<td align="center">%S</td>
+<td align="center">秒（00~59）</td>
+</tr>
+<tr>
+<td align="center">%j</td>
+<td align="center">今年中的第几天</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210301234705625.png" alt="image-20210301234705625"></p>
+<ul>
+<li>reboot命令</li>
+</ul>
+<p>用途：重启系统</p>
+<p>格式：<code>reboot [选项]</code> 需要管理员权限，sudo</p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">w</td>
+<td align="center">仅作模拟重启系统，只有记录，不会真重启</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="center">强制重启</td>
+</tr>
+</tbody></table>
+<ul>
+<li>poweroff命令</li>
+</ul>
+<p>用途：关闭系统</p>
+<p>格式：<code>poweroff</code>  需要管理员权限，sudo</p>
+<ul>
+<li>wget命令</li>
+</ul>
+<p>用途：在终端中下载网络文件</p>
+<p>格式：<code>wget [参数] 下载地址</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-b</td>
+<td align="center">后台下载模式</td>
+</tr>
+<tr>
+<td align="center">-P</td>
+<td align="center">下载到指定目录</td>
+</tr>
+<tr>
+<td align="center">-t</td>
+<td align="center">最大尝试次数</td>
+</tr>
+<tr>
+<td align="center">-c</td>
+<td align="center">断点续传</td>
+</tr>
+<tr>
+<td align="center">-p</td>
+<td align="center">下载页面内所有资源，包括图片、视频等</td>
+</tr>
+<tr>
+<td align="center">-r</td>
+<td align="center">递归下载</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302124019187.png" alt="image-20210302124019187"></p>
+<ul>
+<li>ps命令</li>
+</ul>
+<p>用途：查看系统中的进程状态（通常结合管道使用）</p>
+<p>格式：<code>ps [参数]</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-a</td>
+<td align="center">显示所有进程（包括其他用户的进程）</td>
+</tr>
+<tr>
+<td align="center">-u</td>
+<td align="center">用户以及其他详细信息</td>
+</tr>
+<tr>
+<td align="center">-x</td>
+<td align="center">显示没有控制终端的进程</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302125933828.png" alt="image-20210302125933828"></p>
+<ul>
+<li>top命令</li>
+</ul>
+<p>用途：动态地监视进程活动与系统负载等信息（相当于强化版的Windows任务管理器）</p>
+<p>格式：<code>top</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302130629626.png" alt="image-20210302130629626"></p>
+<p>前五行为系统整体的统计信息，其代表的含义如下：</p>
+<p>1）第1行：系统时间、运行时间、登陆终端数、系统负载（三个数值分别为1分钟、5分钟、15分钟内的平均值，数值越小意味着负载越低）</p>
+<p>2）第2行：进程总数、运行中的进程数、睡眠中的进程数、停止的进程数、僵死的进程数</p>
+<p>3）第3行：用户占用资源百分比、系统内核占用资源百分比、改变过优先级的进程资源百分比、空闲的资源百分比等</p>
+<p>4）第4行：物理内存总量、内存空闲量、内存使用量、作为内核缓存的内存量</p>
+<p>5）第5行：虚拟内存总量、虚拟内存空闲量、虚拟内存使用量、已被提前加载的内存量</p>
+<ul>
+<li>pidof命令</li>
+</ul>
+<p>用途：查询某个指定服务进程的PID值（每个进程的进程号码值PID是唯一的，因此可以通过PID来区分不同的进程）</p>
+<p>格式：<code>pidof [参数] [服务名称]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302151819375.png" alt="image-20210302151819375"></p>
+<ul>
+<li>kill命令</li>
+</ul>
+<p>用途：终止某个指定PID的服务进程</p>
+<p>格式：<code>kill [参数] [进程PID]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302153107250.png" alt="image-20210302153107250"></p>
+<ul>
+<li>killall命令</li>
+</ul>
+<p>用途：终止某个指定名称的服务所对应的全部进程</p>
+<p>格式：<code>killall [参数] [进程名称]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302153815357.png" alt="image-20210302153815357"></p>
+<h2 id="06-系统状态检测命令"><a href="#06-系统状态检测命令" class="headerlink" title="06. 系统状态检测命令"></a>06. 系统状态检测命令</h2><ul>
+<li>ifconfig命令</li>
+</ul>
+<p>用途：获取网卡配置与网络状态等信息</p>
+<p>格式：<code>ifconfig [网络设备] [参数]</code></p>
+<p>注：主要查看的是网卡名称、inet参数后面的IP地址、ether参数后面的网卡物理地址（MAC地址）以及RX、TX的接收数据包与发送数据包的个数及累计流量等</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302155450083.png" alt="image-20210302155450083"></p>
+<ul>
+<li>uname命令</li>
+</ul>
+<p>用途：查看系统内核与系统版本等信息</p>
+<p>格式：<code>uname [-a]</code></p>
+<p>注：一般会固定搭配上<code>-a</code>参数来完整地查看当前系统的内核名称、主机名、内核发行版本、节点名、系统时间、硬件名称、硬件平台、处理器类型以及操作系统名称等信息。</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302160033145.png" alt="image-20210302160033145"></p>
+<p>如果要查看当前系统版本的详细信息，则需要查看相关文件</p>
+<p>1）RedHat    ：  redhat-release</p>
+<p>2）Ubuntu    ：  lsb-release</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302225316902.png" alt="image-20210302225316902"></p>
+<ul>
+<li>uptime命令</li>
+</ul>
+<p>用途：查看系统的负载信息</p>
+<p>格式：<code>uptime</code></p>
+<p>注：显示的信息为 当前系统时间、系统已运行时间、启用终端数量、平均负载值（最近1分钟、5分钟、15分钟）等信息</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302225928680.png" alt="image-20210302225928680"></p>
+<ul>
+<li>free命令</li>
+</ul>
+<p>用途：显示当前系统中内存的使用量信息</p>
+<p>格式：<code>free [-h]</code></p>
+<p>-h参数以更人性化的方式输出当前内存的实时使用量信息</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302230320981.png" alt="image-20210302230320981"></p>
+<ul>
+<li>who命令</li>
+</ul>
+<p>用途：查看当前登入主机的用户终端信息</p>
+<p>格式：<code>who [参数]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302230516173.png" alt="image-20210302230516173"></p>
+<ul>
+<li>last命令</li>
+</ul>
+<p>用途：查看所有系统的登录记录</p>
+<p>格式：<code>last [参数]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302230725884.png" alt="image-20210302230725884"></p>
+<ul>
+<li>history命令</li>
+</ul>
+<p>用途：显示历史执行过的命令</p>
+<p>格式：<code>history [-c]</code></p>
+<p>注：-c 参数会清空所有的命令历史记录</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302231011872.png" alt="image-20210302231011872"></p>
+<p>注：默认显示1000条记录，可以自定义 /etc/profile 文件中 HISTSIZE 的变量值，历史命令会保存在用户家目录中的 .bash_history 文件中</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210302231434403.png" alt="image-20210302231434403"></p>
+<ul>
+<li>sosreport命令</li>
+</ul>
+<p>用途：收集系统配置及架构信息并输出诊断文档</p>
+<p>格式：<code>sosreport</code></p>
+<p>注：当Linux系统出现故障时，可以使用此命令将信息收集，会生成文档和校验码，发送给技术支持人员即可</p>
+
+        </div>
+
+        <div class="article-nav">
+            
+                <div class="article-prev">
+                    <a class="prev btn"
+                       rel="prev"
+                       href="/2021/03/04/WorkNote/Repo%20%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"
+                    >
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Repo命令</span><span class="post-nav-item">Prev posts</span>
+                    </a>
+                </div>
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/2020/12/23/IPConflict/"
+                    >
+                        <span class="post-nav-title-item">IP conflict</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '06caf322bbc7f08e1fc0',
+            clientSecret: '37a65bdb3a1a5b32a82276451d4b5587364b71b1',
+            repo: 'MyBlogComment',
+            owner: 'Smith-bee',
+            admin: ['Smith-bee'],
+            id: location.pathname,
+            language: 'zh-Hans'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+
+                    
+
+                </main>
+
+            </div>
+
+            <div class="page-main-content-bottom">
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2021 <i class="fa fa-heart-o"></i> <a href="/">Smith-bee</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        Totalview <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
+        </div>
+    </div>
+</footer>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="sidebar-tools">
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+        <li class="page-aside-toggle">
+            <i class="fa fa-bars"></i>
+        </li>
+        
+            <li class="scroll-to-top">
+                <i class="fa fa-caret-up"></i>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- page aside -->
+    <aside class="page-aside">
+        
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">Linux 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%B8%B8%E7%94%A8%E7%9A%84RPM%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">01. 常用的RPM软件包命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7apt-get%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">02. 包管理工具apt-get常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7systemctl%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">03. 服务管理工具systemctl常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4man%E5%B8%B8%E7%94%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">1.4.</span> <span class="nav-text">04. 帮助命令man常用信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">05. 常用系统工作命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A3%80%E6%B5%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">06. 系统状态检测命令</span></a></li></ol></li></ol>
+    </div>
+</div>
+        
+    </aside>
+
+</div>
+
+
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/main.js"></script>
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/js/code-copy.js"></script>
+
+    
+
+    
+
+
+
+</body>
+</html>
