@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        notebook 主题设置 | Smith-bee Blog
+        Smith-bee Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -110,13 +110,13 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">notebook 主题设置</a></h3>
+            <h3><a class="title-hover-animation"></a></h3>
         </div>
 
         <div class="meta-info">
             <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2020-10-05 21:49:18
+        <i class="fa fa-calendar-o"></i> 2020-12-23 16:48:06
     </span>
     
     
@@ -127,12 +127,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-        <i class="fa fa-book"></i> <span>103 字</span>
+        <i class="fa fa-book"></i> <span>1.2k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-        <i class="fa fa-clock-o"></i> <span>1 分钟</span>
+        <i class="fa fa-clock-o"></i> <span>4 分钟</span>
         </span>
     
 </div>
@@ -140,47 +140,19 @@
         </div>
 
         <div class="article-content markdown-body">
-            <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><ul>
-<li>安装jupyter主题</li>
+            <h2 id="IP-conflict"><a href="#IP-conflict" class="headerlink" title="IP conflict"></a>IP conflict</h2><p>记录一下，今天宿舍同学在使用学校的校园网时，在校园网的登录界面，出现了 <strong>IP conflict</strong>的问题，过来找我帮忙解决一下，不过之前学习的计算机网络知识基本快忘光了，只是记得模糊，于是去查了一下，特此记录。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ul>
+<li>虽然IP地址冲突不常发生，却是一个非常实际的问题，会给用户带来极大的不便。如果两个或多个IP地址发生冲突，结果就是一个或多个计算机或设备完全无法连接网络。幸好，万一发生冲突，有些办法可以解决这个问题。之所以会发生IP地址冲突，是由于同一个网络上的两个或多个计算机或设备(比如平板电脑)最后被分配了同一个IP地址。</li>
+<li>IP(互联网协议)地址是计算机的唯一识别符，它由一串数字组成，比如192.168.8.4。要是没有IP地址，你就连接不上网络。通常会弹出某种警告或错误信息，提醒你注意这个问题。有时候，问题会自行解决，但并非总是如此幸运。</li>
+<li>通常，IP地址冲突出现在局域网上，不过也有可能出现在连接到互联网的多个设备之间。任何拥有IP地址的设备都有可能与另一个设备发生冲突。IP地址可能是静态地址，也可能是动态地址。静态IP地址从不改变，手动分配。另一方面，动态IP地址只是暂时的，每当你的计算机或设备连接到互联网或你的路由器，就分配一个新的动态IP地址。<br>静态IP地址和动态IP地址都有可能出现冲突，不过如今静态地址出现冲突的可能性比较小，那是由于大多数路由器内置的DHCP(动态主机配置协议)服务器系统通常用来管理和分配IP地址。DHCP服务器系统有IP地址库，又叫地址范围;来自该地址库的地址被分配给设备，以响应系统对IP地址的请求IP地址冲突会因多种原因而发生，不过一个典型的例子是，两个或多个系统被分配了同样的静态IP地址。现在这种情况不常发生，这归功于DHCP服务器系统。然而，如果你有不止一个DHCP服务器在运行(你不该运行多个DHCP服务器)，配置相似的服务器就有可能将同样的地址分配给多个设备。</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade jupyterthemes</span><br></pre></td></tr></table></figure>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ul>
+<li>如果你有另一个为网络连接提供便利的设备，它可能有嵌入的DHCP服务器系统，默认情况下已被开启。这种情况下，关掉服务器可以解决问题。</li>
+<li>互联网服务提供商(ISP)也可能为多个用户分配同一个地址。如果安装的某个设备有多个网络适配器，那么它本身就有可能遇到IP地址冲突。如果最初连接到一个网络的设备进入待机模式，随后又恢复工作，不过连接到另一个网络，而该网络上的某个设备有同一个IP地址，也会发生冲突。这可能会出现在带回家的办公笔记本电脑上，或者携带笔记本电脑或另一个设备出差时。IP地址冲突有时候完全会自行解决，但是这需要一段时间，要是果真自行解决的话。解决这个问题也许很简单，只要重启路由器即可。要是网络上的每个设备都被分配了动态IP地址，路由器重启、重新分配IP地址给网络上的每个设备后，这个问题就有望得到解决。<br>解决这个问题的另一个办法是，通过命令提示符，释放IP地址，至少在Windows系统上可行。打开命令提示符(为此可以进入到“开始”菜单，搜索“cmd”)，然后在窗口中输入“ipconfig /release”，然后按回车键。DHCP服务器随后会为你的计算机分配一个新的IP地址。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查看IP地址  Windows</span><br><span class="line">ipconfig </span><br><span class="line">//ip 释放</span><br><span class="line">ipconfig /release </span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>操作</p>
-<ul>
-<li>查看主题列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -l</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>更换主题</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t 主题名称</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>恢复默认</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -r</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul>
-<li>字体css位置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Anaconda\Lib\site-packages\notebook\static\components\codemirror\lib\codemirror.css</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>字体样式</p>
-<p>在.css 文件的前几行，可直接修改</p>
-</li>
-<li><p>字体大小</p>
-<p>247行，**px</p>
-</li>
-<li><p>行间距(如果不合适，会非常难受)</p>
-<p>字体大小的下面</p>
-<p>line-height:**px</p>
-</li>
-</ul>
+<p>如果一次过后没有解决问题，可以多释放几次，我同学的就是这个问题，同时可以注意每次释放后的IP地址，是否发生变化。</p>
 
         </div>
 
@@ -189,9 +161,9 @@
                 <div class="article-prev">
                     <a class="prev btn"
                        rel="prev"
-                       href="/2020/10/05/LeetcodeProblem/"
+                       href="/2021/03/04/WorkNote/Repo%20%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"
                     >
-                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Leetcode刷题</span><span class="post-nav-item">上一篇</span>
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item"></span><span class="post-nav-item">上一篇</span>
                     </a>
                 </div>
             
@@ -199,9 +171,9 @@
                 <div class="article-next">
                     <a class="next btn"
                        rel="next"
-                       href="/2020/10/05/json%E5%AD%A6%E4%B9%A0/"
+                       href="/2020/11/12/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98/"
                     >
-                        <span class="post-nav-title-item">json学习</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
+                        <span class="post-nav-title-item">汉诺塔问题</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             
@@ -308,7 +280,7 @@
         
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IP-conflict"><span class="nav-number">1.</span> <span class="nav-text">IP conflict</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">1.2.</span> <span class="nav-text">解决</span></a></li></ol></li></ol>
     </div>
 </div>
         
