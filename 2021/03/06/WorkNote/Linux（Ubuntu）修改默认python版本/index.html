@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        Linux（Ubuntu）修改默认python版本 | Smith-bee Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"example.com","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"2.0.2","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Smith-bee Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-container">
+
+    <header class="page-header">
+        <div class="header-progress"></div>
+    </header>
+
+    <main class="page-main">
+
+        <div class="page-main-content">
+
+            <div class="page-main-content-top">
+                <header class="header-wrapper">
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            Smith-bee Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+            </div>
+
+            <div class="page-main-content-middle">
+
+                <main class="main-content normal-code-theme">
+
+                    
+                        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">Linux（Ubuntu）修改默认python版本</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2021-03-06 00:00:00
+    </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+        <i class="fa fa-book"></i> <span>622 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+        <i class="fa fa-clock-o"></i> <span>2 Mins</span>
+        </span>
+    
+</div>
+
+        </div>
+
+        <div class="article-content markdown-body">
+            <h2 id="1-查看python版本"><a href="#1-查看python版本" class="headerlink" title="1. 查看python版本"></a>1. 查看python版本</h2><ul>
+<li>查看系统中有哪些python版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/bin/python*</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210306163303800.png" alt="image-20210306163303800"></p>
+<ul>
+<li>查看系统中默认的python版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210306163825793.png" alt="image-20210306163825793"></p>
+<h2 id="2-用户级修改"><a href="#2-用户级修改" class="headerlink" title="2. 用户级修改"></a>2. 用户级修改</h2><p>对某个特定用户修改python版本，只需要在其home目录下创建一个alias</p>
+<ul>
+<li>打开该用户的<code>.bashrc</code>文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加新的别名来修改默认python版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> python=<span class="string">&#x27;/usr/bin/python3.5&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>注：改成你想要修改的python版本即可</p>
+<ul>
+<li>重新登录或重新加载<code>.bashrc</code>文件，使操作生效</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210306181041623.png" alt="image-20210306181041623"></p>
+<h2 id="3-系统级修改"><a href="#3-系统级修改" class="headerlink" title="3. 系统级修改"></a>3. 系统级修改</h2><h3 id="3-1-基于软链接"><a href="#3-1-基于软链接" class="headerlink" title="3.1 基于软链接"></a>3.1 基于软链接</h3><ul>
+<li>先删除默认的python软链接</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /usr/bin/python</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后创建一个新的软链接指向需要的python版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/bin/python3.5 /usr/bin/python</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-基于update-alternatives"><a href="#3-2-基于update-alternatives" class="headerlink" title="3.2 基于update-alternatives"></a>3.2 基于update-alternatives</h3><p>可以使用update-alternatives来为整个系统更改python版本</p>
+<ul>
+<li>列出所有可用的python替代版本信息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --list python</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210306204933837.png" alt="image-20210306204933837"></p>
+<p>注：如果出现以上所示的错误信息，表示update-alternatives没有添加python的替换版本</p>
+<ul>
+<li>将python的替换版本添加进去</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1</span><br><span class="line"><span class="comment">#update-alternatives：使用 /usr/bin/python2.7 来在自动模式中提供 /usr/bin/python (python)</span></span><br><span class="line"></span><br><span class="line">update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2</span><br><span class="line"><span class="comment">#update-alternatives：使用 /usr/bin/python3.5 来在自动模式中提供 /usr/bin/python (python)</span></span><br></pre></td></tr></table></figure>
+
+<p>注：install选项使用了多个参数用于创建符号链接，最后一个参数指定了此选项的优先级，如果我们没有手动来设置替代选项，那么具有最高优先级的选项就会被选中。 此例子中python3.5 的优先级为2，所有它会为默认的python版本</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210306210345852.png" alt="image-20210306210345852"></p>
+<ul>
+<li>现在就可以在列出的python替代版本中任意切换</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --config python</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210306225539153.png" alt="image-20210306225539153"></p>
+<ul>
+<li>当系统不再存在某个python替代版本时，可以将其从update-alternatives列表中删除掉</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --remove python /usr/bin/python2.7</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --list python</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210306230907356.png" alt="image-20210306230907356"></p>
+<h2 id="4-pip错误"><a href="#4-pip错误" class="headerlink" title="4. pip错误"></a>4. pip错误</h2><p>更改python默认版本之后可能会出现错误</p>
+<ul>
+<li>显示pip版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决办法是将pip版本更改为符合当前的python版本，对于python2或者python3</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip  <span class="comment">#python2</span></span><br><span class="line">sudo apt-get install python3-pip  <span class="comment">#python3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装pip之后，可能版本不是最新的，需要更新</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将pip更新为10.0.0之后的版本时，库里面的函数有所变动会出现问题</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#只需要修改/usr/bin/pip和/usr/bin/pip3文件</span></span><br><span class="line">from pip import main</span><br><span class="line"><span class="comment">#修改为</span></span><br><span class="line">from pip_internal import main</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <div class="article-nav">
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/2021/03/04/WorkNote/Repo%20%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"
+                    >
+                        <span class="post-nav-title-item">Repo命令</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '06caf322bbc7f08e1fc0',
+            clientSecret: '37a65bdb3a1a5b32a82276451d4b5587364b71b1',
+            repo: 'MyBlogComment',
+            owner: 'Smith-bee',
+            admin: ['Smith-bee'],
+            id: location.pathname,
+            language: 'zh-Hans'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+
+                    
+
+                </main>
+
+            </div>
+
+            <div class="page-main-content-bottom">
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2021 <i class="fa fa-heart-o"></i> <a href="/">Smith-bee</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        Totalview <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
+        </div>
+    </div>
+</footer>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="sidebar-tools">
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+        <li class="page-aside-toggle">
+            <i class="fa fa-bars"></i>
+        </li>
+        
+            <li class="scroll-to-top">
+                <i class="fa fa-caret-up"></i>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- page aside -->
+    <aside class="page-aside">
+        
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9F%A5%E7%9C%8Bpython%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">1. 查看python版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%94%A8%E6%88%B7%E7%BA%A7%E4%BF%AE%E6%94%B9"><span class="nav-number">2.</span> <span class="nav-text">2. 用户级修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%B3%BB%E7%BB%9F%E7%BA%A7%E4%BF%AE%E6%94%B9"><span class="nav-number">3.</span> <span class="nav-text">3. 系统级修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%9F%BA%E4%BA%8E%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 基于软链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%9F%BA%E4%BA%8Eupdate-alternatives"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 基于update-alternatives</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-pip%E9%94%99%E8%AF%AF"><span class="nav-number">4.</span> <span class="nav-text">4. pip错误</span></a></li></ol>
+    </div>
+</div>
+        
+    </aside>
+
+</div>
+
+
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/main.js"></script>
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/js/code-copy.js"></script>
+
+    
+
+    
+
+
+
+</body>
+</html>
