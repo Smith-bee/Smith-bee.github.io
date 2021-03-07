@@ -46,7 +46,7 @@
                     <a class=""
                        href="/"
                     >
-                        HOME
+                        首页
                     </a>
                 </li>
             
@@ -54,7 +54,7 @@
                     <a class=""
                        href="/archives"
                     >
-                        ARCHIVES
+                        归档
                     </a>
                 </li>
             
@@ -62,7 +62,7 @@
                     <a class=""
                        href="/about"
                     >
-                        ABOUT
+                        关于
                     </a>
                 </li>
             
@@ -78,17 +78,17 @@
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/">HOME</a>
+                       href="/">首页</a>
                 </li>
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/archives">ARCHIVES</a>
+                       href="/archives">归档</a>
                 </li>
             
                 <li class="drawer-menu-item">
                     <a class=""
-                       href="/about">ABOUT</a>
+                       href="/about">关于</a>
                 </li>
             
         </ul>
@@ -127,12 +127,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-        <i class="fa fa-book"></i> <span>1.9k Words</span>
+        <i class="fa fa-book"></i> <span>3.8k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-        <i class="fa fa-clock-o"></i> <span>7 Mins</span>
+        <i class="fa fa-clock-o"></i> <span>13 分钟</span>
         </span>
     
 </div>
@@ -651,6 +651,509 @@
 <p>用途：收集系统配置及架构信息并输出诊断文档</p>
 <p>格式：<code>sosreport</code></p>
 <p>注：当Linux系统出现故障时，可以使用此命令将信息收集，会生成文档和校验码，发送给技术支持人员即可</p>
+<h2 id="07-工作目录切换命令"><a href="#07-工作目录切换命令" class="headerlink" title="07. 工作目录切换命令"></a>07. 工作目录切换命令</h2><ul>
+<li>pwd命令</li>
+</ul>
+<p>用途：显示用户当前所处的工作目录</p>
+<p>格式：<code>pwd [选项]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307124957080.png" alt="image-20210307124957080"></p>
+<ul>
+<li>cd命令</li>
+</ul>
+<p>用途：切换工作路径</p>
+<p>格式：<code>cd [目录名称]</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用形式</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">cd -</td>
+<td align="center">返回到上一次所处的目录</td>
+</tr>
+<tr>
+<td align="center">cd ..</td>
+<td align="center">进入上级目录</td>
+</tr>
+<tr>
+<td align="center">cd ~</td>
+<td align="center">切换到当前用户的home目录</td>
+</tr>
+<tr>
+<td align="center">cd ~username</td>
+<td align="center">切换到其他用户的home目录</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307125642978.png" alt="image-20210307125642978"></p>
+<ul>
+<li>ls命令</li>
+</ul>
+<p>用途：显示目录中的文件信息</p>
+<p>格式：<code>ls [选项] [文件]</code></p>
+<p>注：可以添加不同参数来查看想看到的信息</p>
+<table>
+<thead>
+<tr>
+<th align="center">常用参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-a</td>
+<td align="center">查看全部文件（包括隐藏文件）</td>
+</tr>
+<tr>
+<td align="center">-l</td>
+<td align="center">查看文件的属性、大小等详细信息</td>
+</tr>
+<tr>
+<td align="center">-s</td>
+<td align="center">查看文件的大小</td>
+</tr>
+<tr>
+<td align="center">-h</td>
+<td align="center">配合 -l 或 -s 参数显示文件的大小（k、M、G)，方便我们感知</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">用来查看目录的权限与属性信息</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307131827134.png" alt="image-20210307131827134"></p>
+<h2 id="08-文本文件编辑命令"><a href="#08-文本文件编辑命令" class="headerlink" title="08. 文本文件编辑命令"></a>08. 文本文件编辑命令</h2><ul>
+<li>cat命令</li>
+</ul>
+<p>用途：查看纯文本文件（内容较少的）</p>
+<p>格式：<code>cat [选项] [文件]</code></p>
+<p>注：-n 参数可以显示文件的行号</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307131739113.png" alt="image-20210307131739113"></p>
+<ul>
+<li>more命令</li>
+</ul>
+<p>用途：查看纯文本文件（内容较多的）</p>
+<p>格式：<code>more [选项] 文件</code></p>
+<p>注：可以使用空格键或回车键向下翻页</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307133216086.png" alt="image-20210307133216086"></p>
+<ul>
+<li>head命令</li>
+</ul>
+<p>用途：查看出文本文档的前N行 </p>
+<p>格式：<code>head [选项] [文件]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307133636761.png" alt="image-20210307133636761"></p>
+<ul>
+<li>tail命令</li>
+</ul>
+<p>用途：查看纯文本文档的后N行或持续刷新内容</p>
+<p>格式：<code>tail [选项] [文件]</code></p>
+<p>注：tail命令最强悍的功能是可以持续刷新一个文件的内容，当想要实时查看最新日志文件时，这特别有用，此时的命令格式为 <code>tail -f 文件名</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307134608310.png" alt="image-20210307134608310"></p>
+<ul>
+<li>tr命令</li>
+</ul>
+<p>用途：替换文本文件中的字符</p>
+<p>格式：<code>tr [原始字符] [目标字符]</code></p>
+<p>注：可以配合cat命令和管道符一起使用</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307135517560.png" alt="image-20210307135517560"></p>
+<ul>
+<li>wc命令</li>
+</ul>
+<p>用途：统计指定文本的行数、字数、字节数</p>
+<p>格式：<code>wc [参数] 文本</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-l</td>
+<td align="center">只显示行数</td>
+</tr>
+<tr>
+<td align="center">-w</td>
+<td align="center">只显示单词数</td>
+</tr>
+<tr>
+<td align="center">-c</td>
+<td align="center">只显示字节数</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307140036880.png" alt="image-20210307140036880"></p>
+<ul>
+<li>stat命令</li>
+</ul>
+<p>用途：查看文件的具体存储信息和时间等信息</p>
+<p>格式：<code>stat 文件名称</code></p>
+<p>注：此命令会显示文件的三种时间状态  Access 、Modify 、 Change</p>
+<table>
+<thead>
+<tr>
+<th align="center">状态</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Access</td>
+<td align="center">文件的读取时间</td>
+</tr>
+<tr>
+<td align="center">Modify</td>
+<td align="center">文件内容的修改时间</td>
+</tr>
+<tr>
+<td align="center">Change</td>
+<td align="center">文件权限或属性的更改时间</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307181237777.png" alt="image-20210307181237777"></p>
+<ul>
+<li>cut命令</li>
+</ul>
+<p>用途：按“列”提取文本字符</p>
+<p>格式：<code>cut [参数] 文本</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-f</td>
+<td align="center">查看的列数</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">设置间隔符</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307182626497.png" alt="image-20210307182626497"></p>
+<ul>
+<li>diff命令</li>
+</ul>
+<p>用途：比较多个文本文件的差异</p>
+<p>格式：<code>diff [参数] 文件</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">–brief</td>
+<td align="center">确认两个文件是否不同</td>
+</tr>
+<tr>
+<td align="center">-c</td>
+<td align="center">详细比较多个文件的差异之处</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307183526248.png" alt="image-20210307183526248"></p>
+<h2 id="09-文件目录管理命令"><a href="#09-文件目录管理命令" class="headerlink" title="09. 文件目录管理命令"></a>09. 文件目录管理命令</h2><ul>
+<li>touch命令</li>
+</ul>
+<p>用途：创建空白文件或设置文件的时间</p>
+<p>格式：<code>touch [选项] [文件]</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-a</td>
+<td align="center">仅修改“读取时间”（atime)</td>
+</tr>
+<tr>
+<td align="center">-m</td>
+<td align="center">仅修改“修改时间”（mtime)</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">同时修改atime与mtime</td>
+</tr>
+</tbody></table>
+<p>注：文件内容的修改时间（mtime）、文件权限或属性的更改时间（ctime）、文件的读取时间（atime）</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307185656740.png" alt="image-20210307185656740"></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307190510772.png" alt="image-20210307190510772"></p>
+<ul>
+<li>mkdir命令</li>
+</ul>
+<p>用途：创建空白的目录</p>
+<p>格式：<code>mkdir [选项] 目录</code></p>
+<p>注：-p参数可以递归创建出具有嵌套叠层关系的文件目录</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307191242918.png" alt="image-20210307191242918"></p>
+<ul>
+<li>cp命令</li>
+</ul>
+<p>用途：复制文件或目录</p>
+<p>格式：<code>cp [选项] 源文件 目标文件</code></p>
+<p>注：复制操作分为三种情况</p>
+<p>​        1）如果目标文件是目录，则会把源文件复制到该目录中</p>
+<p>​        2）如果目标问价也是普通文件，则会询问是否要覆盖它</p>
+<p>​        3）如果目标文件不存在，则执行正常的复制操作</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-p</td>
+<td align="center">保留原始文件的属性</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">若对象为“链接文件”，则保留该“链接文件”的属性</td>
+</tr>
+<tr>
+<td align="center">-r</td>
+<td align="center">递归持续复制（用于目录）</td>
+</tr>
+<tr>
+<td align="center">-i</td>
+<td align="center">若目标文件存在则询问是否覆盖</td>
+</tr>
+<tr>
+<td align="center">-a</td>
+<td align="center">相当于-pdr（p、d、r为上面的参数）</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307192354048.png" alt="image-20210307192354048"></p>
+<ul>
+<li>mv命令</li>
+</ul>
+<p>用途：剪切文件或将文件重命名</p>
+<p>格式：<code>mv [选项] 源文件 [目标路径/目标文件名]</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307192707662.png" alt="image-20210307192707662"></p>
+<ul>
+<li>rm命令</li>
+</ul>
+<p>用途：删除文件或目录</p>
+<p>格式：<code>rm [选项] 文件</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-f</td>
+<td align="center">不需要反复确认信息，强制删除</td>
+</tr>
+<tr>
+<td align="center">-r</td>
+<td align="center">用于删除目录</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307194223846.png" alt="image-20210307194223846"></p>
+<ul>
+<li>dd命令</li>
+</ul>
+<p>用途：按照指定大小和个数的数据块来复制文件或转换文件</p>
+<p>格式：<code>dd [参数]</code></p>
+<p>注：dd命令是一个比较重要而且比较有特色的一个命令，它能够让用户按照指定大小和个数的数据块来复制文件的内容。还可以在复制过程中转换其中的数据。/dev/zero 是一个设备文件，它充满哲学色彩，这个文件不会占用系统存储空间，但却可以提供无穷无尽的数据。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">if</td>
+<td align="center">输入的文件名称</td>
+</tr>
+<tr>
+<td align="center">of</td>
+<td align="center">输出的文件名称</td>
+</tr>
+<tr>
+<td align="center">bs</td>
+<td align="center">设置每个“块”的大小</td>
+</tr>
+<tr>
+<td align="center">count</td>
+<td align="center">设置要复制“块”的个数</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307202810197.png" alt="image-20210307202810197"></p>
+<p>注：还可以使用dd命令来压制出光盘镜像文件，将它编程一个可立即使用的iso镜像</p>
+<p><img src="C:\Users\竹笙\AppData\Roaming\Typora\typora-user-images\image-20210307203551825.png" alt="image-20210307203551825"></p>
+<ul>
+<li>file命令</li>
+</ul>
+<p>用途：查看文件的类型</p>
+<p>格式：<code>file 文件名</code></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307204117618.png" alt="image-20210307204117618"></p>
+<h2 id="10-打包压缩与搜索命令"><a href="#10-打包压缩与搜索命令" class="headerlink" title="10. 打包压缩与搜索命令"></a>10. 打包压缩与搜索命令</h2><ul>
+<li>tar命令</li>
+</ul>
+<p>用途：对文件进行打包压缩或解压</p>
+<p>格式：<code>tar [选项] [文件]</code></p>
+<p>注：在Linux系统中，常见的文件格式比较多，其中主要使用的是 <strong>.tar</strong>、**.tar.gz<strong>或</strong>.tar.bz2**格式</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-c</td>
+<td align="center">创建压缩文件</td>
+</tr>
+<tr>
+<td align="center">-x</td>
+<td align="center">解开压缩文件</td>
+</tr>
+<tr>
+<td align="center">-t</td>
+<td align="center">查看压缩包内有哪些文件</td>
+</tr>
+<tr>
+<td align="center">-z</td>
+<td align="center">用Gzip压缩或解压</td>
+</tr>
+<tr>
+<td align="center">-j</td>
+<td align="center">用bzip2压缩或解压</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">显示压缩或解压的过程</td>
+</tr>
+<tr>
+<td align="center">-f</td>
+<td align="center">目标文件名</td>
+</tr>
+<tr>
+<td align="center">-p</td>
+<td align="center">保留原始的权限与属性</td>
+</tr>
+<tr>
+<td align="center">-P（大写）</td>
+<td align="center">使用绝对路径来压缩</td>
+</tr>
+<tr>
+<td align="center">-C</td>
+<td align="center">指定解压到的目录</td>
+</tr>
+</tbody></table>
+<p>注：一般常使用 <code>tar -czvf</code>压缩包名称**.tar.gz<strong>要打包的目录，使用<code>tar xzvf</code>解压缩</strong>.tar.gz**的压缩包</p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307213611721.png" alt="image-20210307213611721"></p>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307213642177.png" alt="image-20210307213642177"></p>
+<ul>
+<li>grep命令</li>
+</ul>
+<p>用途：在文本中执行关键词搜索，并显示匹配的结果</p>
+<p>格式：<code>grep [选项] [文件]</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-b</td>
+<td align="center">将可执行文件（binary）当作文本文件（text）来搜索</td>
+</tr>
+<tr>
+<td align="center">-c</td>
+<td align="center">仅显示找到的行数</td>
+</tr>
+<tr>
+<td align="center">-i</td>
+<td align="center">忽略大小写</td>
+</tr>
+<tr>
+<td align="center">-n</td>
+<td align="center">显示行号</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">反向选择—-仅列出没有“关键词”的行</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307215338294.png" alt="image-20210307215338294"></p>
+<ul>
+<li>find命令</li>
+</ul>
+<p>用途：按照指定条件来查找文件</p>
+<p>格式：<code>find [查找路径] 寻找条件 操作</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-name</td>
+<td align="center">匹配名称</td>
+</tr>
+<tr>
+<td align="center">-perm</td>
+<td align="center">匹配权限（mode为完全匹配，-mode为包含即可）</td>
+</tr>
+<tr>
+<td align="center">-user</td>
+<td align="center">匹配所有者</td>
+</tr>
+<tr>
+<td align="center">-group</td>
+<td align="center">匹配所有组</td>
+</tr>
+<tr>
+<td align="center">-mtime -n +n</td>
+<td align="center">匹配修改内容的时间（-n指n天以内，+n指n天以前）</td>
+</tr>
+<tr>
+<td align="center">-atime -n +n</td>
+<td align="center">匹配访问文件的时间（-n指n天以内，+n指n天以前）</td>
+</tr>
+<tr>
+<td align="center">-ctime -n +n</td>
+<td align="center">匹配修改文件权限的时间（-n指n天以内，+n指n天以前）</td>
+</tr>
+<tr>
+<td align="center">-nouser</td>
+<td align="center">匹配无所有者的文件</td>
+</tr>
+<tr>
+<td align="center">-nogroup</td>
+<td align="center">匹配无所有组的文件</td>
+</tr>
+<tr>
+<td align="center">-newer f1 !f2</td>
+<td align="center">匹配比文件f1 新但比 f2 旧的文件</td>
+</tr>
+<tr>
+<td align="center">–type b/d/c/p/l/f</td>
+<td align="center">匹配文件类型（后面的字母参数依次表示块设备、目录、字符设备、管道、链接文件、文本文件）</td>
+</tr>
+<tr>
+<td align="center">-size</td>
+<td align="center">匹配文件的大小（+50KB为查找超过50KB的文件，而-50KB为查找小于50KB的文件）</td>
+</tr>
+<tr>
+<td align="center">-prune</td>
+<td align="center">忽略某个目录</td>
+</tr>
+<tr>
+<td align="center">-exec ······ {} \</td>
+<td align="center">后面可跟用于进一步处理搜索结果的命令</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/smithbee/image_bed/raw/master/image-20210307221711231.png" alt="image-20210307221711231"></p>
 
         </div>
 
@@ -661,7 +1164,7 @@
                        rel="prev"
                        href="/2021/03/04/WorkNote/Repo%20%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"
                     >
-                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Repo命令</span><span class="post-nav-item">Prev posts</span>
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">Repo命令</span><span class="post-nav-item">上一篇</span>
                     </a>
                 </div>
             
@@ -671,7 +1174,7 @@
                        rel="next"
                        href="/2020/12/23/IPConflict/"
                     >
-                        <span class="post-nav-title-item">IP conflict</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                        <span class="post-nav-title-item">IP conflict</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             
@@ -720,18 +1223,18 @@
             <div class="website-count info-item">
                 
                     <span id="busuanzi_container_site_uv" style="display: none">
-                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                        访问人数 <span id="busuanzi_value_site_uv"></span>
                     </span>
                 
                 
                     <span id="busuanzi_container_site_pv" style="display: none">
-                        Totalview <span id="busuanzi_value_site_pv"></span>
+                        总访问量 <span id="busuanzi_value_site_pv"></span>
                     </span>
                 
             </div>
         
         <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a
                     href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.2</a>
         </div>
     </div>
@@ -778,7 +1281,7 @@
         
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">Linux 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%B8%B8%E7%94%A8%E7%9A%84RPM%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">01. 常用的RPM软件包命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7apt-get%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">02. 包管理工具apt-get常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7systemctl%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">03. 服务管理工具systemctl常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4man%E5%B8%B8%E7%94%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">1.4.</span> <span class="nav-text">04. 帮助命令man常用信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">05. 常用系统工作命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A3%80%E6%B5%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">06. 系统状态检测命令</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">Linux 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%B8%B8%E7%94%A8%E7%9A%84RPM%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">01. 常用的RPM软件包命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7apt-get%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">02. 包管理工具apt-get常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7systemctl%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">03. 服务管理工具systemctl常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4man%E5%B8%B8%E7%94%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">1.4.</span> <span class="nav-text">04. 帮助命令man常用信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">05. 常用系统工作命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A3%80%E6%B5%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">06. 系统状态检测命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#07-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%88%87%E6%8D%A2%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.</span> <span class="nav-text">07. 工作目录切换命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#08-%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4"><span class="nav-number">1.8.</span> <span class="nav-text">08. 文本文件编辑命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#09-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="nav-number">1.9.</span> <span class="nav-text">09. 文件目录管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%89%93%E5%8C%85%E5%8E%8B%E7%BC%A9%E4%B8%8E%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4"><span class="nav-number">1.10.</span> <span class="nav-text">10. 打包压缩与搜索命令</span></a></li></ol></li></ol>
     </div>
 </div>
         
@@ -798,7 +1301,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="Search..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
